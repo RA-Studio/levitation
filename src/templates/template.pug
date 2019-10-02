@@ -1,0 +1,29 @@
+block variables
+
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title #{title}
+		meta(content="" name="description")
+		meta(content="" name="keywords")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(content="ie=edge" http-equiv="x-ua-compatible")
+		link(rel="shortcut icon" href="assets/images/apple-touch-icon.png" type="image/x-icon")
+		link(rel="apple-touch-icon" href="assets/images/apple-touch-icon.png")
+		link(rel="stylesheet" type="text/css" href="assets/scripts/fancybox/jquery.fancybox.min.css")
+		link(rel="stylesheet" type="text/css" href="assets/scripts/slick/slick.css")
+		link(rel="stylesheet" type="text/css" href="assets/scripts/slick/slick-theme.css")
+		link(rel="stylesheet" type="text/css" href="assets/styles/app.min.css")
+		
+	body
+		.wrapper
+			include common/header.pug
+			.content
+				block content
+			include common/footer.pug 
+
+		script(src="assets/scripts/jquery.js")
+		script(src="assets/scripts/fancybox/jquery.fancybox.min.js")
+		script(src="assets/scripts/slick/slick.min.js")
+		script(src="assets/scripts/main.js")

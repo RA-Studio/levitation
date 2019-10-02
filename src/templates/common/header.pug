@@ -1,0 +1,26 @@
+header.header
+	a.header__logo(href="/")
+		img(src="assets/images/logo.png", alt="")
+	.header-menu
+		.header-menu__item
+			a(href="#") Login
+		.header-menu__item#basket
+			a(href="#") Shopping bag
+				span  (0)
+		.header-menu__item#search-btn
+			a(href="#") Search
+			.header-menu__item-search-wrap
+				form.header-menu__item-search(action="#")
+					input(type="text" name="search")
+					button(type='submit') Ок
+		.header-menu__item
+			a(href="#") Show all
+		.header-menu__item
+			a(href="#") Concept only
+		.header-menu__item
+			a(href="#") Without concept
+
+.banners
+	-for(var i = 0; i < 3; i++)
+		a.banners-item(href="#" style="background-image:url('assets/images/banners-item.jpg')") 
+			span(style="bottom: 100px" /*Отступ снизу поставить динамикой чтобы для каждого элемента задавать свой отступ*/) Special Offer

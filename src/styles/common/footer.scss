@@ -1,0 +1,55 @@
+.footer{
+	padding-bottom: 20px;
+	padding-left: 60px;
+	padding-right: 20px;
+	margin-right: 330px;
+	color: #b3b3b3;
+	&-toTop{
+		display: none;
+		width: 40px;
+		height: 40px;
+		background: url('../images/toTop.png') center no-repeat;
+		background-size: contain;
+		cursor: pointer;
+		position: fixed;
+		left: 100px;
+		bottom: 120px;
+	}
+	&-top{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 13px;
+		&-col{
+			display: flex;
+			@media screen and (min-width: 1025px) {
+				> a:hover{
+					text-decoration: underline;
+				}
+			}
+			&-item{
+				display: flex;
+				align-items: center;
+				margin-right: 30px;
+				&:last-child{
+					margin-right: 0;
+				}
+				img{
+					margin-left: 5px;
+				}
+			}
+			&-social{
+				margin-left: 10px;
+			}
+		}
+	}
+	&-menu{
+		color: #000
+	}
+	&-info{
+		text-transform: uppercase;
+		font-size: 10px;
+		line-height: 14px;
+		margin-top: 20px;
+	}
+}
