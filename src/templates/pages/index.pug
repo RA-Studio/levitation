@@ -5,4 +5,39 @@ block variables
 
 block content
 	.main
-		
+		form.main-filters(action="#")
+			.main-filters__title Filters
+			input.main-filters__clear(type="button" id="del_filter" name="del_filter" value="Сбросить")
+			.main-filters-categories
+				-for(var i = 0; i < 7; i++)
+					.main-filters-categories__title Categories
+					.main-filters-categories-items
+						-for(var j = 0; j < 5; j++)
+							.main-filters-categories-items__link-wrap
+								input.main-filters-categories-items__input(type="checkbox" id=""+ i+j +"")
+								label.main-filters-categories-items__link(for=""+ i+j +"") Accessories
+		.main-items-wrap
+			.main-items
+				-for(var i = 0; i < 4; i++)
+					a.main-items-card(href="#")
+						.main-items-card-img
+							.main-items-card-img-top
+								img(src="assets/images/card1.jpg", alt="")
+							.main-items-card-img-bot
+								img(src="assets/images/card1-2.jpg", alt="")
+						.main-items-card-info
+							.main-items-card-info__title Ice cream skull hoodie cream skull hoodie
+							.main-items-card-info__status Available Now
+							.main-items-card-info__price ₽ 36.775
+					a.main-items-card(href="#")
+						.main-items-card-img
+							.main-items-card-img-top
+								img(src="assets/images/card2.jpg", alt="")
+							.main-items-card-img-bot
+								img(src="assets/images/card2-2.jpg", alt="")
+						.main-items-card-info
+							.main-items-card-info__title Ice cream skull hoodie
+							.main-items-card-info__status Available Now
+							.main-items-card-info__price ₽ 36.775
+
+				

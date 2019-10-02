@@ -6,14 +6,14 @@
 	color: #b3b3b3;
 	&-toTop{
 		display: none;
-		width: 40px;
-		height: 40px;
+		width: 30px;
+		height: 30px;
 		background: url('../images/toTop.png') center no-repeat;
 		background-size: contain;
 		cursor: pointer;
 		position: fixed;
-		left: 100px;
-		bottom: 120px;
+		left: 15px;
+		bottom: 70px;
 	}
 	&-top{
 		display: flex;

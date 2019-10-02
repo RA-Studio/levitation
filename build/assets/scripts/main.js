@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 	/*Блок поиска*/
 	$(document).on('click', '#search-btn a', function (e) {
+		e.preventDefault();
 		$(this).siblings('.header-menu__item-search-wrap').toggle();
 	});
 	$(document).on('click', function (e) {
@@ -28,6 +29,7 @@ $(document).ready(function () {
 	});
 	/*Кнопка Наверх Конец*/
 
+	/*Слайдер баннеры*/
 	$(document).find('.banners').slick({
 		arrows: false,
 		vertical: true,
@@ -39,4 +41,14 @@ $(document).ready(function () {
 		speed: 1000,
 		variableHeight: true
 	});
+	/*Слайдер баннеры Конец*/
+
+	/*Фильтр*/
+	$(document).on('click', '.main-filters__title', function (e) {
+		$(this).siblings('.main-filters__clear').fadeToggle();
+		$(this).siblings('.main-filters-categories').slideToggle();
+		$(this).toggleClass('active');
+	});
+	/*Фильтр Конец*/
+
 });
