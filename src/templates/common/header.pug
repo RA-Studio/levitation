@@ -2,11 +2,17 @@ header.header
 	a.header__logo(href="/")
 		img(src="assets/images/logo.png", alt="")
 	.header-menu
+		.header-menu-lang
+			a.header-menu-lang__item.active(href="#") EN
+			a.header-menu-lang__item(href="#") RU
 		.header-menu__item
-			a(href="#") Login
+			a(href="login.html") Login
 		.header-menu__item#basket
-			a(href="#") Shopping bag
+			a(href="basket-empty.html") Shopping bag
 				span  (0)
+		.header-menu__item#basket
+			a(href="basket.html") Shopping bag
+				span  (2)
 		.header-menu__item#search-btn
 			a(href="#") Search
 			.header-menu__item-search-wrap
@@ -14,11 +20,11 @@ header.header
 					input(type="text" name="search")
 					button(type='submit') Ок
 		.header-menu__item
-			a(href="#") Show all
+			a(href="/") Show all
 		.header-menu__item
-			a(href="#") Concept only
+			a(href="concept-good.html") Concept only
 		.header-menu__item
-			a(href="#") Without concept
+			a(href="basic-good.html") Without concept
 
 .banners
 	-for(var i = 0; i < 3; i++)

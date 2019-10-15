@@ -14,6 +14,20 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		&-lang{
+			margin-left: 35px;
+			display: flex;
+			margin-bottom: 20px;
+			&__item{
+				font-weight: bold;
+				font-size: 20px;
+				color: #858585;
+				margin-right: 10px;
+				&.active{
+					color: #000;
+				}
+			}
+		}
 		&__item{
 			text-transform: uppercase;
 			font-weight: bold;

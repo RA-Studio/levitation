@@ -1,0 +1,16 @@
+.contacts{
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	&__title{
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	&__link{
+		margin-bottom: 35px;
+	}
+	&__text{
+		margin-top: 60px;
+	}
+}

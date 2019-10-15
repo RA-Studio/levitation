@@ -1,0 +1,13 @@
+.text{
+	max-width: 650px;
+	&__subtitle{
+		font-size: 20px;
+		font-weight: 500;
+		margin-bottom: 20px;
+	}
+	&__content{
+		font-size: 20px;
+		line-height: 27px;
+		margin-bottom: 30px;
+	}
+}
