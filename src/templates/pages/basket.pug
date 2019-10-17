@@ -38,42 +38,46 @@ block content
 							img(src="assets/images/basket-logo6.svg", alt="")
 						p All the transactions and informations about the credit card use SSL/TLS communication products, guarantee of an always coded communication
 						p Contact us or check on customer service & info for further information
-				.basket-content-row.header-row
-					.basket-content-row-col Description
-					.basket-content-row-col PRICE
-					.basket-content-row-col QTY
-					.basket-content-row-col TOTAL:
-					.basket-content-row-col REMOVE
-				-for(var i = 0; i < 4; i++)
-					.basket-content-row
-						.basket-content-row-col
-							.basket-content-row-col__img
-								img(src="assets/images/card1.jpg", alt="")
-							.basket-content-row-col__title PALM ANGELS<br/>SWEATSHIRT HOODED<br/>Size L
-						.basket-content-row-col ₽ 36.775
-						.basket-content-row-col
-						.basket-content-row-col ₽ 36.775
-						.basket-content-row-col
-							.basket-content-row-col__del
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 13.9 13.9" style="enable-background:new 0 0 13.9 13.9;" xml:space="preserve">
-									<title>x mark-unfilled</title>
-									<desc>Created with Sketch.</desc>
-									<g>
-										<g transform="translate(-13.000000, -13.000000)">
-											<path d="M21.3,19.9l5.3-5.3c0.4-0.4,0.4-1,0-1.3c-0.4-0.4-1-0.4-1.3,0l-5.3,5.3l-5.3-5.3c-0.4-0.4-1-0.4-1.3,0    c-0.4,0.4-0.4,1,0,1.3l5.3,5.3l-5.3,5.3c-0.4,0.4-0.4,1,0,1.3c0.4,0.4,1,0.4,1.3,0l5.3-5.3l5.3,5.3c0.4,0.4,1,0.4,1.3,0    c0.4-0.4,0.4-1,0-1.3L21.3,19.9z"/>
+				.basket-content-main
+					.basket-content-row.header-row
+						.basket-content-row-col Description
+						.basket-content-row-col PRICE
+						.basket-content-row-col QTY
+						.basket-content-row-col TOTAL:
+						.basket-content-row-col REMOVE
+					-for(var i = 0; i < 4; i++)
+						.basket-content-row
+							.basket-content-row-col
+								.basket-content-row-col__img
+									img(src="assets/images/card1.jpg", alt="")
+								.basket-content-row-col__title PALM ANGELS<br/>SWEATSHIRT HOODED<br/>Size L
+							.basket-content-row-col ₽ 36.775
+							.basket-content-row-col
+								.basket-content-row-col__minus -
+								input.basket-content-row-col__input(type="text" value="1")
+								.basket-content-row-col__plus +
+							.basket-content-row-col ₽ 36.775
+							.basket-content-row-col
+								.basket-content-row-col__del
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 13.9 13.9" style="enable-background:new 0 0 13.9 13.9;" xml:space="preserve">
+										<title>x mark-unfilled</title>
+										<desc>Created with Sketch.</desc>
+										<g>
+											<g transform="translate(-13.000000, -13.000000)">
+												<path d="M21.3,19.9l5.3-5.3c0.4-0.4,0.4-1,0-1.3c-0.4-0.4-1-0.4-1.3,0l-5.3,5.3l-5.3-5.3c-0.4-0.4-1-0.4-1.3,0    c-0.4,0.4-0.4,1,0,1.3l5.3,5.3l-5.3,5.3c-0.4,0.4-0.4,1,0,1.3c0.4,0.4,1,0.4,1.3,0l5.3-5.3l5.3,5.3c0.4,0.4,1,0.4,1.3,0    c0.4-0.4,0.4-1,0-1.3L21.3,19.9z"/>
+											</g>
 										</g>
-									</g>
-								</svg>
-				.basket-content-total
-					.basket-content-total-row
-						span TOTAL:
-						.basket-content-total-row__price ₽ 100.195
-					.basket-content-total-row
-						input(type="text" placeholder="Coupon Code")
-						.basket-content-total-row__btn Update
-				.basket-content-bot
-					a.basket-content-bot__back(href="/") Continue shopping
-					button.basket-content-bot__checkout Checkout
+									</svg>
+					.basket-content-total
+						.basket-content-total-row
+							span TOTAL:
+							.basket-content-total-row__price ₽ 100.195
+						.basket-content-total-row
+							input(type="text" placeholder="Coupon Code")
+							.basket-content-total-row__btn Update
+					.basket-content-bot
+						a.basket-content-bot__back(href="/") Continue shopping
+						button.basket-content-bot__checkout Checkout
 
 
 								

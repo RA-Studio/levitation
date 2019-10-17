@@ -127,10 +127,127 @@
 					font-size: 12px
 				}
 			}
-			&:hover{
-				.main-items-card-img-top{
-					opacity: 0;
-					transition: .4s;
+			@media screen and (min-width:1200px) {
+				&:hover{
+					.main-items-card-img-top{
+						opacity: 0;
+						transition: .4s;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width:1919px){
+	.main{
+		&-filters{
+			margin-top: 240px;
+			margin-left: 58px;
+		}
+		&-items{
+			max-width: 50%;
+			margin: 0 auto 100px;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 20px;
+			&-wrap{
+				margin-left: -145px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:1200px){
+	.main{
+		&-items{
+			max-width: none;
+			margin-left: 295px;
+			margin-right: 20px;
+		}
+	}
+}
+
+@media screen and (max-width:1024px){
+	.main{
+		&-filters{
+			margin-top: 20px;
+			margin-left: 20px;
+		}
+		&-items{
+			margin-left: 205px;
+			&-wrap{
+				margin-left: -107px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:767px){
+	.main{
+		flex-direction: column;
+		&-filters{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-left: 0;
+			align-self: center;
+			width: 100%;
+			&__title{
+				padding: 10px;
+				margin-left: -10px;
+				&:before,
+				&:after{
+					right: -10px;
+    			top: 17.5px;
+				}
+			}
+			&__clear{
+				display: block!important;
+				position: absolute;
+				right: 15px;
+				top: 25px;
+			}
+			&-categories{
+				display: flex!important;
+				flex-direction: column;
+				align-items: flex-start;
+				&-wrap{
+					display: none;
+					width: calc(100% - 40px);
+					background-color: #f5f5f5;
+					border-radius: 5px;
+					margin: 0 15px;
+					padding: 20px 15px;
+					position: relative;
+				}
+				&__title{
+					cursor: pointer;
+					padding: 10px 0;
+					margin-bottom: 0;
+				}
+				&-items{
+					display: none;
+					margin-bottom: 15px;
+					&__link{
+						margin-bottom: 0;
+						padding: 5px 0;
+					}
+				}
+			}
+		}
+		&-items{
+			margin-bottom: 50px;
+			margin-left: 20px;
+			grid-template-columns: repeat(2, 1fr);
+			&-wrap{
+				margin-left: 0;
+			}
+			&-card{
+				&-info{
+					padding: 0;
+					&__title{
+						font-size: 12px;
+					}
 				}
 			}
 		}

@@ -7,15 +7,16 @@ block content
 	.main
 		form.main-filters(action="#")
 			.main-filters__title Filters
-			input.main-filters__clear(type="button" id="del_filter" name="del_filter" value="Clear all")
-			.main-filters-categories
-				-for(var i = 0; i < 7; i++)
-					.main-filters-categories__title Categories
-					.main-filters-categories-items
-						-for(var j = 0; j < 5; j++)
-							.main-filters-categories-items__link-wrap
-								input.main-filters-categories-items__input(type="checkbox" id=""+ i+j +"")
-								label.main-filters-categories-items__link(for=""+ i+j +"") Accessories
+			.main-filters-categories-wrap
+				input.main-filters__clear(type="button" id="del_filter" name="del_filter" value="Clear all")
+				.main-filters-categories
+					-for(var i = 0; i < 7; i++)
+						.main-filters-categories__title Categories
+						.main-filters-categories-items
+							-for(var j = 0; j < 5; j++)
+								.main-filters-categories-items__link-wrap
+									input.main-filters-categories-items__input(type="checkbox" id=""+ i+j +"")
+									label.main-filters-categories-items__link(for=""+ i+j +"") Accessories
 		.main-items-wrap
 			.main-items
 				-for(var i = 0; i < 4; i++)

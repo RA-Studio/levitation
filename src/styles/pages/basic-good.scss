@@ -27,7 +27,6 @@
 			.good-gallery-item{
 				height: auto;
 				img{
-					max-width: none;
 					max-height: none;
 					cursor: url('../images/zoom-out.png'), auto;
 				}
@@ -128,6 +127,130 @@
 			color: #ababab;
 			font-size: 12px;
 			margin-bottom: 15px;
+		}
+	}
+}
+
+@media screen and (max-width:1919px){
+	.good{
+		margin-bottom: 50px;
+		&-gallery{
+			width: 50%;
+			margin-left: 0%;
+			&-item{
+				height: calc(100vh - 180px);
+			}
+		}
+		&-content{
+			&.absolute{
+				position: absolute;
+				top: auto;
+				bottom: 50px;
+				right: 25%;
+				transform: none;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px){
+	.good{
+		&-gallery{
+			width: 60%;
+		}
+		&-content{
+			right: 15%;
+			&.absolute{
+				right: 15%;
+			}
+		}
+		&-list{
+			width: 60%;
+			padding: 0;
+			position: static;
+			transform: none;
+			&-items{
+				display: flex;
+				flex-wrap: wrap;
+			}
+			&__item{
+				width: 50%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1024px){
+	.good{
+		&-gallery{
+			width: 55%;
+		}
+		&-list{
+			width: 55%;
+			&__title{
+				text-align: center;
+			}
+			&__item{
+				text-align: center;
+			}
+		}
+	}
+}
+
+@include w768{
+	.good-content{
+		right: 5%;
+		&.absolute{
+			right: 5%;
+		}
+	}
+}
+
+@include w480{
+	.good{
+		&-gallery{
+			width: 100%;
+			display: block;
+			&-item{
+				display: flex!important;
+			}
+			.slick-dots{
+				li{
+					button{
+						cursor: pointer;
+						&:before{
+							content: '';
+							background-color: #ababab;
+							opacity: 1;
+							width: 20px;
+							height: 4px;
+						}
+					}
+					&.slick-active button:before{
+						background: #000;
+					}
+				}
+			}
+		}
+		&-content{
+			position: static;
+			transform: none;
+			width: 100%;
+			align-items: center;
+			margin-top: 60px;
+			&__title{
+				text-align: center;
+			}
+			&__info{
+				text-align: center;
+			}
+			&-sizes{
+				margin-bottom: 5px;
+			}
+		}
+		&-list{
+			margin-top: 40px;
+			width: 100%;
 		}
 	}
 }

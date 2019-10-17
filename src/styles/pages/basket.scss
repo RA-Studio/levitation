@@ -56,6 +56,18 @@
 						max-height: 150px;
 					}
 				}
+				&__minus,
+				&__plus{
+					padding: 10px;
+					cursor: pointer;
+				}
+				&__input{
+					width: 20px;
+					text-align: center;
+					border: none;
+					background-color: #fff;
+					font-size: 14px;
+				}
 				&__del{
 					padding: 10px;
 					cursor: pointer;
@@ -72,15 +84,18 @@
 					flex: 0 0 14%;
 					font-family: 'Roboto', sans-serif;
 					text-align: center;
+					justify-content: center;
 				}
 				&:nth-child(3){
 					flex: 0 0 14%;
 					text-align: center;
+					justify-content: center;
 				}
 				&:nth-child(4){
 					flex: 0 0 14%;
 					font-family: 'Roboto', sans-serif;
 					text-align: center;
+					justify-content: center;
 				}
 				&:last-child{
 					flex: 0 0 8%;
@@ -216,6 +231,104 @@
 				img{
 					display: inline-block;
 					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1919px){
+	.basket{
+		&-content{
+			&-aside{
+				top: 150px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:1200px){
+	.basket{
+		&-content{
+			display: flex;
+			flex-direction: column-reverse;
+			margin-bottom: 30px;
+			&-main{
+				margin-bottom: 30px;
+			}
+			&-aside{
+				position: static;
+				width: 100%;
+			}
+			&-row.header-row{
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:767px){
+	.basket{
+		&-content{
+			&-row{
+				position: relative;
+				font-size: 10px;
+				&.header-row{
+					display: none;
+				}
+				&-col{
+					&__img{
+						margin-right: 10px;
+						img{
+							max-height: 90px;
+						}
+					}
+					&__del{
+						svg{
+							width: 10px;
+							height: 10px;
+						}
+					}
+					&:nth-child(2){
+						display: none;
+					}
+					&:nth-child(4){
+						white-space: nowrap;
+					}
+					&:last-child{
+						position: absolute;
+						top: 0;
+						right: -10px;
+					}
+				}
+			}
+			&-total{
+				align-items: flex-start;
+				&-row{
+					flex-wrap: wrap;
+					width: 100%;
+					&:first-child{
+						margin-bottom: 30px;
+					}
+					input{
+						width: 100%;
+						margin-bottom: 10px;
+					}
+					&__btn{
+						width: 100%;
+						margin-left: 0;
+					}
+				}
+			}
+			&-bot{
+				flex-direction: column-reverse;
+				width: 100%;
+				&__checkout{
+					width: 100%;
+					margin-bottom: 10px;
+				}
+				&__back{
+					width: 100%;
 				}
 			}
 		}
