@@ -1,0 +1,256 @@
+.good{
+	margin-bottom: 100px;
+	&-gallery{
+		width: 80%;
+    margin-left: -15%;
+    display: flex;
+    flex-direction: column;
+		align-items: center;
+		&.active{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			bottom: 0;
+			margin-left: 0;
+			overflow-y: scroll;
+			background: #fff;
+			z-index: 999;
+			cursor: url('../images/zoom-out.png'), auto;
+			.good-gallery__close{
+				position: fixed;
+				right: 50px;
+				top: 33px;
+				display: block;
+				cursor: pointer;
+			}
+			.good-gallery-item{
+				height: auto;
+				img{
+					max-height: none;
+					cursor: url('../images/zoom-out.png'), auto;
+				}
+			}
+		}
+		&__close{
+			width: 40px;
+			height: 40px;
+			background: url('../images/gallery-close.svg') center no-repeat;
+			background-size: 50%;
+			display: none;
+		}
+		&-item{
+			height: calc(100vh - 170px);
+			max-width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img{
+				max-width: 100%;
+				max-height: 100%;
+				cursor: url('../images/zoom.png'), auto;
+			}
+		}
+	}
+	&-content{
+		position: fixed;
+		right: 25%;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 280px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		&__title{
+			font-size: 18px;
+			margin-bottom: 5px;
+		}
+		&__price{
+			font-family: 'Roboto', sans-serif;
+			margin-bottom: 15px;
+		}
+		&__info{
+			font-size: 11px;
+			color: #ababab;
+			margin-bottom: 5px;
+		}
+		&-sizes{
+			display: flex;
+			margin-left: -10px;
+			margin-bottom: 20px;
+			&__item{
+				padding: 10px;
+				cursor: pointer;
+				&.active{
+					font-weight: bold;
+				}
+			}
+		}
+		&__add{
+			width: 100%;
+			height: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #000;
+			color: #fff;
+			text-transform: uppercase;
+			border: solid 2px #000;
+			font-size: 14px;
+			transition: .3s;
+			@media screen and (min-width:1200px) {
+				&:hover{
+					color: #000;
+					background: #fff;
+				}
+			}
+		}
+		&__guide{
+			margin-top: 20px;
+			font-size: 11px;
+		}
+	}
+	&-list{
+		position: fixed;
+		right: 3%;
+		top: 50%;
+		transform: translateY(-50%);
+		list-style-position: inside;
+		margin: 0;
+		&__title{
+			text-transform: uppercase;
+			font-size: 18px;
+			margin-bottom: 15px;
+			font-weight: bold;
+		}
+		&__item{
+			color: #ababab;
+			font-size: 12px;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+@media screen and (max-width:1919px){
+	.good{
+		margin-bottom: 50px;
+		&-gallery{
+			width: 50%;
+			margin-left: 0%;
+			&-item{
+				height: calc(100vh - 180px);
+			}
+		}
+		&-content{
+			&.absolute{
+				position: absolute;
+				top: auto;
+				bottom: 50px;
+				right: 25%;
+				transform: none;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px){
+	.good{
+		&-gallery{
+			width: 60%;
+		}
+		&-content{
+			right: 15%;
+			&.absolute{
+				right: 15%;
+			}
+		}
+		&-list{
+			width: 60%;
+			padding: 0;
+			position: static;
+			transform: none;
+			&-items{
+				display: flex;
+				flex-wrap: wrap;
+			}
+			&__item{
+				width: 50%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1024px){
+	.good{
+		&-gallery{
+			width: 55%;
+		}
+		&-list{
+			width: 55%;
+			&__title{
+				text-align: center;
+			}
+			&__item{
+				text-align: center;
+			}
+		}
+	}
+}
+
+@include w768{
+	.good-content{
+		right: 5%;
+		&.absolute{
+			right: 5%;
+		}
+	}
+}
+
+@include w480{
+	.good{
+		&-gallery{
+			width: 100%;
+			display: block;
+			&-item{
+				display: flex!important;
+			}
+			.slick-dots{
+				li{
+					button{
+						cursor: pointer;
+						&:before{
+							content: '';
+							background-color: #ababab;
+							opacity: 1;
+							width: 20px;
+							height: 4px;
+						}
+					}
+					&.slick-active button:before{
+						background: #000;
+					}
+				}
+			}
+		}
+		&-content{
+			position: static;
+			transform: none;
+			width: 100%;
+			align-items: center;
+			margin-top: 60px;
+			&__title{
+				text-align: center;
+			}
+			&__info{
+				text-align: center;
+			}
+			&-sizes{
+				margin-bottom: 5px;
+			}
+		}
+		&-list{
+			margin-top: 40px;
+			width: 100%;
+		}
+	}
+}

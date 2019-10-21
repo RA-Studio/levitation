@@ -1,0 +1,11 @@
+extends ../template
+
+block variables
+	- var title = 'Корзина'
+
+block content
+	.basket
+		.container
+			.basket-empty
+				.basket-empty__title Your cart is empty
+				a.basket-empty__btn(href="/") Continue shopping

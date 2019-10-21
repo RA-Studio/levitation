@@ -12,6 +12,7 @@ body{
 	color: #000;
 	margin: 0;
 	font-family: 'GothamPro';
+	position: relative;
 }
 a{
 	text-decoration: none;
@@ -30,8 +31,7 @@ img{
 	display: block;
 }
 .container{
-	max-width: 1380px;
-	width: 97%;
+	max-width: 47%;
 	margin: 0 auto;
 }
 .wrapper {
@@ -42,6 +42,12 @@ img{
 }
 .content {
 	flex: 1;
+	padding-top: 170px;
+	position: relative;
+}
+.title{
+	font-size: 24px;
+	margin-bottom: 40px;
 }
 
 @import 'common/adaptive';
@@ -50,3 +56,9 @@ img{
 @import 'common/footer';
 @import 'pages/main'; 
 @import 'pages/index';
+@import 'pages/basic-good';
+@import 'pages/login';
+@import 'pages/basket';
+@import 'pages/404';
+@import 'pages/text';
+@import 'pages/contacts';

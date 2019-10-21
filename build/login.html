@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Карта</title>
+    <title>Login</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,8 +51,50 @@
       <div class="banners"><a class="banners-item" href="#" style="background-image:url('assets/images/banners-item.jpg')"> <span style="bottom: 100px">Special Offer</span></a><a class="banners-item" href="#" style="background-image:url('assets/images/banners-item.jpg')"> <span style="bottom: 100px">Special Offer</span></a><a class="banners-item" href="#" style="background-image:url('assets/images/banners-item.jpg')"> <span style="bottom: 100px">Special Offer</span></a>
       </div>
       <div class="content">
-        <div class="sait-map">
-          <nav class="sait-map-menu"><a class="sait-map-menu__item" href="index.html">Главная</a><a class="sait-map-menu__item" href="basic-good.html">Базовая карточка</a><a class="sait-map-menu__item" href="concept-good.html">Концепт карточка</a><a class="sait-map-menu__item" href="basket.html">Корзина</a><a class="sait-map-menu__item" href="basket-empty.html">Пустая корзина</a><a class="sait-map-menu__item" href="login.html">Авторизация</a><a class="sait-map-menu__item" href="contacts.html">Контакты</a><a class="sait-map-menu__item" href="404.html">404</a><a class="sait-map-menu__item" href="text.html">Текстовая страница</a></nav>
+        <div class="container">
+          <div class="login">
+            <form class="login-col" action="#">
+              <div class="login-col__title">Login</div>
+              <label for="login">Login email</label>
+              <input type="text" id="login">
+              <label for="password">Password</label>
+              <input type="password" id="password">
+              <div class="login-col-row">
+                <label for="remember">
+                  <input type="checkbox" id="remember"><span></span><span>Remember me</span>
+                </label>
+              </div><span>Forgot Password?</span>
+              <button class="login-col__btn" type="submit">Login</button>
+            </form>
+            <form class="login-col" action="#">
+              <div class="login-col__title">Create an account</div>
+              <label for="email">Email</label>
+              <input type="text" id="email">
+              <label for="pass">Account password</label>
+              <input type="password" id="pass">
+              <label for="confirmPass">Password Confirmation</label>
+              <input type="password" id="confirmPass">
+              <div class="login-col-row">
+                <label for="newsletter">
+                  <input type="checkbox" id="newsletter"><span></span><span>Sign up to the newsletter</span>
+                </label>
+              </div>
+              <div class="login-col-row">
+                <label for="male">
+                  <input type="radio" name="sex" id="male"><span></span><span>Male</span>
+                </label>
+                <label for="female">
+                  <input type="radio" name="sex" id="female"><span></span><span>Female</span>
+                </label>
+              </div>
+              <div class="login-col-row">
+                <label for="privacy">
+                  <input type="checkbox" id="privacy"><span></span><span>I have read the privacy information notice</span>
+                </label>
+              </div>
+              <button class="login-col__btn" type="submit">Create</button>
+            </form>
+          </div>
         </div>
       </div>
       <footer class="footer">

@@ -9,6 +9,7 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="shortcut icon" href="assets/images/apple-touch-icon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/scripts/fancybox/jquery.fancybox.min.css">
     <link rel="stylesheet" type="text/css" href="assets/scripts/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/scripts/slick/slick-theme.css">
@@ -16,10 +17,24 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header"><a class="header__logo" href="/"><img src="assets/images/logo.png" alt=""></a>
+      <div class="overlay"></div>
+      <header class="header"><a class="header__logo" href="/"><img src="assets/images/logo.png" alt=""></a><a class="header__cart" href="basket.html"><svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.1594 18H0.272991C0.198264 18 0.126809 17.9694 0.0755367 17.9155C0.024264 17.8615 -0.00300873 17.7889 0.000264002 17.7142L0.6139 4.82781C0.620991 4.68218 0.740446 4.56818 0.886628 4.56818H12.5457C12.6914 4.56818 12.8114 4.68218 12.8184 4.82781L13.4321 17.7142C13.4354 17.7889 13.4086 17.8615 13.3568 17.9155C13.305 17.9694 13.2335 18 13.1594 18ZM0.558809 17.4545H12.873L12.2855 5.11363H1.14626L0.558809 17.4545Z" fill="black"></path>
+<path d="M9.66421 6.20455C9.51366 6.20455 9.39148 6.08236 9.39148 5.93182V3.22091C9.39148 1.746 8.19148 0.545455 6.71603 0.545455C5.24057 0.545455 4.04057 1.746 4.04057 3.22091V5.93182C4.04057 6.08236 3.91839 6.20455 3.76784 6.20455C3.6173 6.20455 3.49512 6.08236 3.49512 5.93182V3.22091C3.49512 1.44491 4.94003 0 6.71603 0C8.49203 0 9.93693 1.44491 9.93693 3.22091V5.93182C9.93693 6.08236 9.8153 6.20455 9.66421 6.20455Z" fill="black"></path>
+</svg><span>5</span></a>
+        <div class="header__burger"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" fill="none">
+<path d="M.5 11.933H18M.5.622H18M.5 6.277H18" stroke="#000"/>
+</svg>
+        </div>
         <div class="header-menu">
-          <div class="header-menu__item"><a href="#">Login</a></div>
-          <div class="header-menu__item" id="basket"><a href="#">Shopping bag<span> (0)</span></a></div>
+          <div class="header-menu__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+<path d="M1 21L21 1m0 20L1 1" stroke="#000" stroke-width=".8"/>
+</svg>
+          </div>
+          <div class="header-menu-lang"><a class="header-menu-lang__item active" href="#">EN</a><a class="header-menu-lang__item" href="#">RU</a></div>
+          <div class="header-menu__item"><a href="login.html">Login</a></div>
+          <div class="header-menu__item" id="basket"><a href="basket-empty.html">Shopping bag<span> (0)</span></a></div>
+          <div class="header-menu__item" id="basket"><a href="basket.html">Shopping bag<span> (2)</span></a></div>
           <div class="header-menu__item" id="search-btn"><a href="#">Search</a>
             <div class="header-menu__item-search-wrap">
               <form class="header-menu__item-search" action="#">
@@ -28,27 +43,275 @@
               </form>
             </div>
           </div>
-          <div class="header-menu__item"><a href="#">Show all</a></div>
-          <div class="header-menu__item"><a href="#">Concept only</a></div>
-          <div class="header-menu__item"><a href="#">Without concept</a></div>
+          <div class="header-menu__item"><a href="/">Show all</a></div>
+          <div class="header-menu__item"><a href="concept-good.html">Concept only</a></div>
+          <div class="header-menu__item"><a href="basic-good.html">Without concept</a></div>
         </div>
       </header>
       <div class="banners"><a class="banners-item" href="#" style="background-image:url('assets/images/banners-item.jpg')"> <span style="bottom: 100px">Special Offer</span></a><a class="banners-item" href="#" style="background-image:url('assets/images/banners-item.jpg')"> <span style="bottom: 100px">Special Offer</span></a><a class="banners-item" href="#" style="background-image:url('assets/images/banners-item.jpg')"> <span style="bottom: 100px">Special Offer</span></a>
       </div>
       <div class="content">
-        <div class="main"></div>
+        <div class="main">
+          <form class="main-filters" action="#">
+            <div class="main-filters__title">Filters</div>
+            <div class="main-filters-categories-wrap">
+              <input class="main-filters__clear" type="button" id="del_filter" name="del_filter" value="Clear all">
+              <div class="main-filters-categories">
+                <div class="main-filters-categories__title">Categories</div>
+                <div class="main-filters-categories-items">
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="00">
+                    <label class="main-filters-categories-items__link" for="00">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="01">
+                    <label class="main-filters-categories-items__link" for="01">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="02">
+                    <label class="main-filters-categories-items__link" for="02">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="03">
+                    <label class="main-filters-categories-items__link" for="03">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="04">
+                    <label class="main-filters-categories-items__link" for="04">Accessories</label>
+                  </div>
+                </div>
+                <div class="main-filters-categories__title">Categories</div>
+                <div class="main-filters-categories-items">
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="10">
+                    <label class="main-filters-categories-items__link" for="10">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="11">
+                    <label class="main-filters-categories-items__link" for="11">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="12">
+                    <label class="main-filters-categories-items__link" for="12">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="13">
+                    <label class="main-filters-categories-items__link" for="13">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="14">
+                    <label class="main-filters-categories-items__link" for="14">Accessories</label>
+                  </div>
+                </div>
+                <div class="main-filters-categories__title">Categories</div>
+                <div class="main-filters-categories-items">
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="20">
+                    <label class="main-filters-categories-items__link" for="20">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="21">
+                    <label class="main-filters-categories-items__link" for="21">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="22">
+                    <label class="main-filters-categories-items__link" for="22">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="23">
+                    <label class="main-filters-categories-items__link" for="23">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="24">
+                    <label class="main-filters-categories-items__link" for="24">Accessories</label>
+                  </div>
+                </div>
+                <div class="main-filters-categories__title">Categories</div>
+                <div class="main-filters-categories-items">
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="30">
+                    <label class="main-filters-categories-items__link" for="30">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="31">
+                    <label class="main-filters-categories-items__link" for="31">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="32">
+                    <label class="main-filters-categories-items__link" for="32">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="33">
+                    <label class="main-filters-categories-items__link" for="33">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="34">
+                    <label class="main-filters-categories-items__link" for="34">Accessories</label>
+                  </div>
+                </div>
+                <div class="main-filters-categories__title">Categories</div>
+                <div class="main-filters-categories-items">
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="40">
+                    <label class="main-filters-categories-items__link" for="40">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="41">
+                    <label class="main-filters-categories-items__link" for="41">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="42">
+                    <label class="main-filters-categories-items__link" for="42">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="43">
+                    <label class="main-filters-categories-items__link" for="43">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="44">
+                    <label class="main-filters-categories-items__link" for="44">Accessories</label>
+                  </div>
+                </div>
+                <div class="main-filters-categories__title">Categories</div>
+                <div class="main-filters-categories-items">
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="50">
+                    <label class="main-filters-categories-items__link" for="50">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="51">
+                    <label class="main-filters-categories-items__link" for="51">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="52">
+                    <label class="main-filters-categories-items__link" for="52">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="53">
+                    <label class="main-filters-categories-items__link" for="53">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="54">
+                    <label class="main-filters-categories-items__link" for="54">Accessories</label>
+                  </div>
+                </div>
+                <div class="main-filters-categories__title">Categories</div>
+                <div class="main-filters-categories-items">
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="60">
+                    <label class="main-filters-categories-items__link" for="60">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="61">
+                    <label class="main-filters-categories-items__link" for="61">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="62">
+                    <label class="main-filters-categories-items__link" for="62">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="63">
+                    <label class="main-filters-categories-items__link" for="63">Accessories</label>
+                  </div>
+                  <div class="main-filters-categories-items__link-wrap">
+                    <input class="main-filters-categories-items__input" type="checkbox" id="64">
+                    <label class="main-filters-categories-items__link" for="64">Accessories</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="main-items-wrap">
+            <div class="main-items"><a class="main-items-card" href="#">
+                <div class="main-items-card-img">
+                  <div class="main-items-card-img-top"><img src="assets/images/card1.jpg" alt=""></div>
+                  <div class="main-items-card-img-bot"><img src="assets/images/card1-2.jpg" alt=""></div>
+                </div>
+                <div class="main-items-card-info">
+                  <div class="main-items-card-info__title">Ice cream skull hoodie cream skull hoodie</div>
+                  <div class="main-items-card-info__status">Available Now</div>
+                  <div class="main-items-card-info__price">₽ 36.775</div>
+                </div></a><a class="main-items-card" href="#">
+                <div class="main-items-card-img">
+                  <div class="main-items-card-img-top"><img src="assets/images/card2.jpg" alt=""></div>
+                  <div class="main-items-card-img-bot"><img src="assets/images/card2-2.jpg" alt=""></div>
+                </div>
+                <div class="main-items-card-info">
+                  <div class="main-items-card-info__title">Ice cream skull hoodie</div>
+                  <div class="main-items-card-info__status">Available Now</div>
+                  <div class="main-items-card-info__price">₽ 36.775</div>
+                </div></a><a class="main-items-card" href="#">
+                <div class="main-items-card-img">
+                  <div class="main-items-card-img-top"><img src="assets/images/card1.jpg" alt=""></div>
+                  <div class="main-items-card-img-bot"><img src="assets/images/card1-2.jpg" alt=""></div>
+                </div>
+                <div class="main-items-card-info">
+                  <div class="main-items-card-info__title">Ice cream skull hoodie cream skull hoodie</div>
+                  <div class="main-items-card-info__status">Available Now</div>
+                  <div class="main-items-card-info__price">₽ 36.775</div>
+                </div></a><a class="main-items-card" href="#">
+                <div class="main-items-card-img">
+                  <div class="main-items-card-img-top"><img src="assets/images/card2.jpg" alt=""></div>
+                  <div class="main-items-card-img-bot"><img src="assets/images/card2-2.jpg" alt=""></div>
+                </div>
+                <div class="main-items-card-info">
+                  <div class="main-items-card-info__title">Ice cream skull hoodie</div>
+                  <div class="main-items-card-info__status">Available Now</div>
+                  <div class="main-items-card-info__price">₽ 36.775</div>
+                </div></a><a class="main-items-card" href="#">
+                <div class="main-items-card-img">
+                  <div class="main-items-card-img-top"><img src="assets/images/card1.jpg" alt=""></div>
+                  <div class="main-items-card-img-bot"><img src="assets/images/card1-2.jpg" alt=""></div>
+                </div>
+                <div class="main-items-card-info">
+                  <div class="main-items-card-info__title">Ice cream skull hoodie cream skull hoodie</div>
+                  <div class="main-items-card-info__status">Available Now</div>
+                  <div class="main-items-card-info__price">₽ 36.775</div>
+                </div></a><a class="main-items-card" href="#">
+                <div class="main-items-card-img">
+                  <div class="main-items-card-img-top"><img src="assets/images/card2.jpg" alt=""></div>
+                  <div class="main-items-card-img-bot"><img src="assets/images/card2-2.jpg" alt=""></div>
+                </div>
+                <div class="main-items-card-info">
+                  <div class="main-items-card-info__title">Ice cream skull hoodie</div>
+                  <div class="main-items-card-info__status">Available Now</div>
+                  <div class="main-items-card-info__price">₽ 36.775</div>
+                </div></a><a class="main-items-card" href="#">
+                <div class="main-items-card-img">
+                  <div class="main-items-card-img-top"><img src="assets/images/card1.jpg" alt=""></div>
+                  <div class="main-items-card-img-bot"><img src="assets/images/card1-2.jpg" alt=""></div>
+                </div>
+                <div class="main-items-card-info">
+                  <div class="main-items-card-info__title">Ice cream skull hoodie cream skull hoodie</div>
+                  <div class="main-items-card-info__status">Available Now</div>
+                  <div class="main-items-card-info__price">₽ 36.775</div>
+                </div></a><a class="main-items-card" href="#">
+                <div class="main-items-card-img">
+                  <div class="main-items-card-img-top"><img src="assets/images/card2.jpg" alt=""></div>
+                  <div class="main-items-card-img-bot"><img src="assets/images/card2-2.jpg" alt=""></div>
+                </div>
+                <div class="main-items-card-info">
+                  <div class="main-items-card-info__title">Ice cream skull hoodie</div>
+                  <div class="main-items-card-info__status">Available Now</div>
+                  <div class="main-items-card-info__price">₽ 36.775</div>
+                </div></a>
+            </div>
+          </div>
+        </div>
       </div>
       <footer class="footer">
         <div class="footer-toTop"></div>
         <div class="footer-top">
           <div class="footer-top-col"><span class="footer-top-col-item">© ООО «Риволта», 2018</span><span class="footer-top-col-item">Сделано в<a href="https://ra-studio.ru/" target="_blank"><img src="assets/images/ra-logo.svg" alt=""></a></span></div>
-          <div class="footer-top-col footer-menu"><a class="footer-top-col-item" href="#">Политика обработки персональных данных</a><a class="footer-top-col-item" href="#">Заказы и доставка</a><a class="footer-top-col-item" href="#">Адреса магазинов</a><a class="footer-top-col-social" href="https://vk.com/levitacia_0" target="_blank" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <div class="footer-top-col footer-menu"><a class="footer-top-col-item" href="text.html">Политика персональных данных</a><a class="footer-top-col-item" href="text.html">Заказы и доставка</a><a class="footer-top-col-item" href="text.html">О бренде</a><a class="footer-top-col-item" href="contacts.html">Контакты</a>
+            <div class="footer-top-col-social"><a href="https://www.instagram.com/levitacia.co/" target="_blank" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
 <path d="M15 11.014C12.801 11.014 11.015 12.797 11.015 15C11.015 17.202 12.802 18.987 15 18.987C17.199 18.987 18.987 17.202 18.987 15C18.987 12.797 17.199 11.014 15 11.014ZM15 17.606C13.556 17.606 12.393 16.439 12.393 15C12.393 13.561 13.556 12.394 15 12.394C16.429 12.394 17.607 13.561 17.607 15C17.607 16.439 16.444 17.606 15 17.606Z" fill="black"/>
 <path d="M19.385 9.556C18.872 9.556 18.465 9.964 18.465 10.477C18.465 10.989 18.872 11.396 19.385 11.396C19.898 11.396 20.306 10.989 20.306 10.477C20.306 9.964 19.897 9.556 19.385 9.556Z" fill="black"/>
 <path d="M15.002 0.149994C6.79805 0.149994 0.149048 6.79699 0.149048 15C0.149048 23.201 6.79805 29.85 15.002 29.85C23.201 29.85 29.852 23.202 29.852 15C29.852 6.79699 23.201 0.149994 15.002 0.149994ZM22.666 18.265C22.666 20.688 20.687 22.666 18.25 22.666H11.75C9.31205 22.666 7.33305 20.687 7.33305 18.28V11.734C7.33305 9.31199 9.31105 7.33399 11.75 7.33399H18.25C20.688 7.33399 22.666 9.31199 22.666 11.734V18.265Z" fill="black"/>
-</svg></a><a class="footer-top-col-social" href="https://www.instagram.com/levitacia.co/" target="_blank" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+</svg></a><a href="https://vk.com/levitacia_0" target="_blank" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
 <path d="M29.8507 15C29.8507 23.2006 23.2013 29.85 15.0007 29.85C6.79879 29.85 0.149414 23.2006 0.149414 15C0.149414 6.79812 6.79879 0.149994 15.0007 0.149994C23.2013 0.149994 29.8507 6.79812 29.8507 15ZM22.0369 18.1244C20.3988 16.6037 20.6175 16.8487 22.5932 14.2181C23.795 12.6169 24.2782 11.6394 24.1244 11.2206C23.9825 10.8212 23.0994 10.9275 23.0994 10.9275L20.1557 10.9456C20.1557 10.9456 19.9363 10.9156 19.775 11.0119C19.6194 11.1062 19.5163 11.3275 19.5163 11.3275C19.5163 11.3275 19.0525 12.5662 18.4325 13.6206C17.1238 15.845 16.5982 15.9625 16.3844 15.8231C15.8869 15.5006 16.0113 14.5306 16.0113 13.8412C16.0113 11.6856 16.3375 10.7869 15.3738 10.5544C15.0544 10.4769 14.8194 10.4262 14.0019 10.4175C12.9532 10.4075 12.0638 10.4219 11.5619 10.6662C11.2269 10.8306 10.9688 11.1956 11.1263 11.2162C11.32 11.2419 11.7613 11.3362 11.9938 11.6531C12.2963 12.0631 12.2838 12.985 12.2838 12.985C12.2838 12.985 12.46 15.52 11.88 15.8356C11.485 16.0525 10.9407 15.6106 9.77379 13.5931C9.17504 12.5606 8.72379 11.4175 8.72379 11.4175C8.72379 11.4175 8.63629 11.2025 8.47879 11.0881C8.29191 10.9494 8.02754 10.9019 8.02754 10.9019L5.23441 10.9131C5.23441 10.9131 4.81316 10.9112 4.66004 11.0937C4.52316 11.2556 4.64879 11.5637 4.64879 11.5637C4.64879 11.5637 6.83566 16.6287 9.38191 19.2075C11.6557 21.5725 14.2344 21.3075 14.2344 21.3075H15.4013C15.4013 21.3075 15.755 21.3781 15.935 21.1894C16.1007 21.0094 16.095 20.7856 16.095 20.7856C16.095 20.7856 16.0738 19.2156 16.8007 18.9837C17.5194 18.7587 18.4407 20.5019 19.4182 21.1694C20.1569 21.6769 20.7175 21.565 20.7175 21.565L23.3307 21.53C23.3307 21.53 24.6969 21.445 24.0488 20.3687C23.9257 20.2819 23.6019 19.5756 22.0369 18.1244Z" fill="black"/>
 </svg></a></div>
+          </div>
         </div>
         <div class="footer-info">Company subject to management and coordination by new guards group holding s.p.a, pursuant to art. 2497 and following of the italian civil code.<br>Venice srl | via daniele manin, 13 | 20121 milano | rea mi-2056611 | p.iva 08927120967 | venicesrl@pec.net |share capital declared on the form used to file the list of shareholders: 10.000,00 euro | sole shareholder</div>
       </footer>
