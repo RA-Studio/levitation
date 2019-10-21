@@ -1,1 +1,9 @@
 node_modules
+/build/
+/src/
+/.gitignore
+/debug.log
+/gulpfile.js
+/package.json
+/package-lock.json
+/README.md
