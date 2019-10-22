@@ -1,7 +1,7 @@
 <?
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
-?>
+?></div>
 <footer class="footer">
     <div class="footer-toTop"></div>
     <div class="footer-top">

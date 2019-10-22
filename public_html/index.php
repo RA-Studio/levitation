@@ -1,10 +1,8 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetTitle('Главная');
-?>
-        <div class="content">
-            <div class="main">
-                <form class="main-filters" action="#">
+?><div class="main">
+     <form class="main-filters" action="#">
                     <div class="main-filters__title">Filters</div>
                     <div class="main-filters-categories-wrap">
                         <input class="main-filters__clear" type="button" id="del_filter" name="del_filter" value="Clear all">
@@ -173,7 +171,7 @@ $APPLICATION->SetTitle('Главная');
                         </div>
                     </div>
                 </form>
-                <div class="main-items-wrap">
+     <div class="main-items-wrap">
                     <div class="main-items"><a class="main-items-card" href="#">
                             <div class="main-items-card-img">
                                 <div class="main-items-card-img-top"><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/card1.jpg" alt=""></div>
@@ -249,8 +247,6 @@ $APPLICATION->SetTitle('Главная');
                             </div></a>
                     </div>
                 </div>
-            </div>
-        </div>
-<?
+</div><?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');
 ?>
