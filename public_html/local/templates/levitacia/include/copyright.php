@@ -1,0 +1,1 @@
+<span class="footer-top-col-item">© ООО «Риволта», 2020</span>
