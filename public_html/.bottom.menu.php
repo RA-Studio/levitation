@@ -22,8 +22,8 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"О бренде", 
-		"/about/", 
+		"Контакты", 
+		"/contacts/", 
 		Array(), 
 		Array(), 
 		"" 

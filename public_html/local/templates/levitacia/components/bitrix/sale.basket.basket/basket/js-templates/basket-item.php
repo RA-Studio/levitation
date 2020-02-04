@@ -88,9 +88,10 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
                             <?=Loc::getMessage('SBB_GOOD_CAP')?> <strong>{{NAME}}</strong> <?=Loc::getMessage('SBB_BASKET_ITEM_DELETED')?>.
                         </div>
                         <div class="basket-items-list-item-removed-block">
-                            <a href="javascript:void(0)" data-entity="basket-item-restore-button">
+                            <a href="javascript:void(0)" style="font-size: 16px;font-weight: bold" data-entity="basket-item-restore-button">
                                 <?=Loc::getMessage('SBB_BASKET_ITEM_RESTORE')?>
                             </a>
+                            <?/*
                             <div class="basket-content-row-col__del" data-entity="basket-item-close-restore-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 13.9 13.9" style="enable-background:new 0 0 13.9 13.9;" xml:space="preserve">
                                     <title>x mark-unfilled</title>
@@ -102,6 +103,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
                                     </g>
                                 </svg>
                             </div>
+                            */?>
                         </div>
                     </div>
                 </div>

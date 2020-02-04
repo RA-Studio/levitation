@@ -7783,7 +7783,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				priceHtml += '<br><span class="bx-price-old">' + total.PRICE_WITHOUT_DISCOUNT + '</span>';
 			}
 
-			this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_SUMMARY'), priceHtml, params));
+			
 
 			if (this.options.showOrderWeight)
 			{
@@ -7834,10 +7834,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				}
 			}
 
-			if (this.result.DELIVERY.length)
-			{
-				this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_DELIVERY'), deliveryValue, params));
-			}
+			
 
 			if (this.options.showDiscountPrice)
 			{
@@ -7858,6 +7855,13 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			{
 				this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_IT'), total.ORDER_TOTAL_PRICE_FORMATED, {total: true}));
 			}
+
+			if (this.result.DELIVERY.length)
+			{
+				this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_DELIVERY'), deliveryValue, params));
+			}
+
+			this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_SUMMARY'), priceHtml, params));
 
 			if (parseFloat(total.PAY_SYSTEM_PRICE) >= 0 && this.result.DELIVERY.length)
 			{

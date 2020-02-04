@@ -33,7 +33,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
     <div class="main-filters-categories-wrap">
         <div class="main-filters__clear" onclick="$(this).closest('form')[0].reset();smartFilter.click(this)" ><?=GetMessage("CT_BCSF_DEL_FILTER")?></div>
         <div class="main-filters-categories">
-            <?$APPLICATION->IncludeComponent("bitrix:menu", "collection", Array(
+            <?/*$APPLICATION->IncludeComponent("bitrix:menu", "collection", Array(//коллекции
                 "COMPONENT_TEMPLATE" => "collection",
                 "ROOT_MENU_TYPE" => "collection",	// Тип меню для первого уровня
                 "MENU_CACHE_TYPE" => "N",	// Тип кеширования
@@ -47,7 +47,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                 "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
             ),
                 false
-            );?>
+            );*/?>
             <?
             /*
             foreach($arResult["ITEMS"] as $key=>$arItem)//prices

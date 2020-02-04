@@ -67,7 +67,7 @@ $(document).ready(function () {
 	/*Слайдер Карточка товара*/
 	if (screen.width < 768) {
 		$(document).find('.good-gallery__close').remove();
-		$(document).find('.good-gallery').slick({
+		$(document).find('[data-entity="images-container"]').slick({
 			arrows: false,
 			slidesToShow: 1,
 			dots: true
@@ -205,7 +205,7 @@ $(document).on('change', '.lk-tab #email', function (e) {
 
 
 function basketHeight() {
-  if($('.basket-content-aside').length && $('.basket-content-main').length){
+  if($('.basket-content-aside').length && $('.basket-content-main').length && screen.width > 1200){
     $('.basket-content-main').css('min-height', $('.basket-content-aside').outerHeight() - 100);
   }
 }
@@ -217,3 +217,14 @@ $(document).ready(function () {
 $(window).resize(function () {
   basketHeight();
 })
+
+$(document).on('click', '.bx-soa-cart-total .bx-soa-cart-total-line-total', function () {
+	if (screen.width > 767) {
+		$(this).toggleClass('active');
+		$(this).siblings('.bx-soa-cart-total-line').toggle();
+	}
+});
+
+$(document).on('click', '.header-menu__parent', function () {
+	$(this).next('.header-menu__content').slideToggle().css('display', 'flex');
+});

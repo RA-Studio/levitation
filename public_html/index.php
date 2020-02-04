@@ -59,7 +59,7 @@ $APPLICATION->SetTitle("_Levitacia^ / Уличная одежда будущег
 		"DETAIL_SHOW_VIEWED" => "N",
 		"DETAIL_STRICT_SECTION_CHECK" => "N",
 		"DETAIL_USE_COMMENTS" => "Y",
-		"DETAIL_USE_VOTE_RATING" => "Y",
+		"DETAIL_USE_VOTE_RATING" => "N",
 		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",

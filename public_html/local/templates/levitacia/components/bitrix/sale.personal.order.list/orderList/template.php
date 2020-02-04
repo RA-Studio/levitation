@@ -138,12 +138,12 @@ else {
 </div><?
     }else{?>
         <div class="lk-tab active" id="lk-info1">
-            <div class="lk-tab-orders">
+            <div class="lk-tab-orders empty-orders">
                 <div class="">
                     <img src="" alt="">
                 </div>
                 <div class="">У Вас нет текущих заказов</div>
-                <div class="">
+                <div class="empty-orders-row">
                     <a href="/">Нажмите здесь</a>, чтобы перейти в каталог
                 </div>
             </div>
