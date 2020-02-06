@@ -68,9 +68,11 @@ $(document).ready(function () {
 	if (screen.width < 768) {
 		$(document).find('.good-gallery__close').remove();
 		$(document).find('[data-entity="images-container"]').slick({
-			arrows: false,
+			arrows: true,
 			slidesToShow: 1,
-			dots: true
+			dots: false,
+			prevArrow: '.good-content-nav__prev',
+			nextArrow: '.good-content-nav__next'
 		});
 	}
 	/*Слайдер Карточка товара Конец*/
@@ -123,9 +125,34 @@ if (screen.width > 767) {
 
 /*Карточка товара Размеры*/
 $(document).on(event, '.good-content-sizes__item', function (e) {
-	$('.good-content-sizes__item').removeClass('active');
+	$(this).closest('.good-content-sizes').find('.good-content-sizes__item').removeClass('active');
 	$(this).addClass('active');
+	if (screen.width < 768) {
+		$(document).find('.good-gallery__close').remove();
+		$(document).find('[data-entity="images-container"]').slick('unslick');
+		$(document).find('[data-entity="images-container"]').slick({
+			arrows: true,
+			slidesToShow: 1,
+			dots: false,
+			prevArrow: '.good-content-nav__prev',
+			nextArrow: '.good-content-nav__next'
+		});
+	}
 });
+$(document).on(event, '.good-content-color__item', function (e) {
+	if (screen.width < 768) {
+		$(document).find('.good-gallery__close').remove();
+		$(document).find('.slick-initialized[data-entity="images-container"]').slick('unslick');
+		$(document).find('[data-entity="images-container"]').slick({
+			arrows: true,
+			slidesToShow: 1,
+			dots: false,
+			prevArrow: '.good-content-nav__prev',
+			nextArrow: '.good-content-nav__next'
+		});
+	}
+});
+
 /*Карточка товара Размеры Конец*/
 
 /*Карточка товара Зум*/

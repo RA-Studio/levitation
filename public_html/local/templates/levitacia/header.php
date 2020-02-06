@@ -91,16 +91,15 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         );?>
         <!--Menu-->
         <div class="header__burger">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" fill="none">
-                <path d="M.5 11.933H18M.5.622H18M.5 6.277H18" stroke="#000"/>
+            <svg width="26" height="17" viewBox="0 0 26 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7H26V10H0V7ZM0 14H26V17H0V14Z" fill="black"/>
+            <path d="M26 3H0V0H26V3Z" fill="black"/>
             </svg>
         </div><?
         if(!CSite::InDir('/404.php') ) {
             ?><div class="header-menu">
             <div class="header-menu__close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
-                    <path d="M1 21L21 1m0 20L1 1" stroke="#000" stroke-width=".8"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
             </div>
           <!--
             <div class="header-menu-lang">

@@ -1,5 +1,6 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
+$APPLICATION->SetPageProperty("description", "Интернет магазин _Levitacia^ - дизайнерская одежда, брюки, футболки, худи, пальто, спортивные костюмы");
 $APPLICATION->SetPageProperty("TITLE", "_Levitacia^ / Уличная одежда будущего");
 $APPLICATION->SetTitle("_Levitacia^ / Уличная одежда будущего");
 ?>
@@ -288,6 +289,8 @@ $APPLICATION->SetTitle("_Levitacia^ / Уличная одежда будущег
 		"DETAIL_MAIN_BLOCK_PROPERTY_CODE" => array(
 		),
 		"MESS_BTN_LAZY_LOAD" => "Показать ещё",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO",
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "/",
 			"section" => "#SECTION_CODE_PATH#/",

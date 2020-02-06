@@ -175,37 +175,28 @@ function getColor ( $id , $filter = []){
 
 
 
-?>
-<div id="<?=$itemIds['ID']?>">
-    <div class="good-gallery" id="<?=$itemIds['BIG_SLIDER_ID']?>" id="<?=$itemIds['ID']?>">
-        <div class="good-gallery__close"></div>
-                <div data-entity="images-container">
-                    <?
-                    if (!empty($actualItem['MORE_PHOTO']))
-                    {
-                        foreach ($actualItem['MORE_PHOTO'] as $key => $photo)
-                        {
-                            ?>
-                            <div class="good-gallery-item" style="display: none"  data-id="<?=$photo['ID']?>">
-                                <img src="<?=$photo['SRC']?>" alt="<?=$alt?>" title="<?=$title?>"<?=($key == 0 ? ' itemprop="image"' : '')?>>
-                            </div>
-                            <?
-                        }
-                    }
-                    ?>
-                </div>
-    </div>
-
+?><div id="<?=$itemIds['ID']?>">
+<div class="good-gallery" id="<?=$itemIds['BIG_SLIDER_ID']?>" id="<?=$itemIds['ID']?>">
+    <div class="good-gallery__close"></div>
+    <div data-entity="images-container"><?
+        if (!empty($actualItem['MORE_PHOTO']))
+        {
+            foreach ($actualItem['MORE_PHOTO'] as $key => $photo)
+            {
+                ?><div class="good-gallery-item" style="display: none"  data-id="<?=$photo['ID']?>">
+                    <img src="<?=$photo['SRC']?>" alt="<?=$alt?>" title="<?=$title?>"<?=($key == 0 ? ' itemprop="image"' : '')?>>
+                </div><?
+            }
+        }
+    ?></div>
+</div>
     <div class="good-content"  itemscope itemtype="http://schema.org/Product">
-
-        <?
+        <div class="good-content__head"><?
         if ($arParams['DISPLAY_NAME'] === 'Y')
         {
-            ?>
-            <h1 class="good-content__title"><?=$name?></h1>
-        <?if ($arParams['USE_VOTE_RATING'] === 'Y')
+            ?><h1 class="good-content__title"><?=$name?></h1><?
+            if ($arParams['USE_VOTE_RATING'] === 'Y')
         {
-
             $APPLICATION->IncludeComponent(
                 'bitrix:iblock.vote',
                 'catalogStars',
@@ -228,51 +219,36 @@ function getColor ( $id , $filter = []){
 
         }
         }
-        ?>
-        <div class="good-content__price">
-            <?
-            if ($arParams['SHOW_OLD_PRICE'] === 'Y')
-            {
-                ?>
-                <div class="price-old" id="<?=$itemIds['OLD_PRICE_ID']?>"
-                     style="display: <?=($showDiscount ? '' : 'none')?>;">
-                    <?=($showDiscount ? $price['PRINT_RATIO_BASE_PRICE'] : '')?>
-                </div>
-                <?
+        ?><div class="good-content__price"><?
+            if ($arParams['SHOW_OLD_PRICE'] === 'Y') {
+                ?><div class="price-old" id="<?=$itemIds['OLD_PRICE_ID']?>"style="display: <?=($showDiscount ? '' : 'none')?>;"><?=($showDiscount ? $price['PRINT_RATIO_BASE_PRICE'] : '')?></div><?
             }
-            ?>
-            <span  id="<?=$itemIds['PRICE_ID']?>">
-                <?=$price['PRINT_RATIO_PRICE']?>
-            </span>
-            <?
-            if ($arParams['SHOW_OLD_PRICE'] === 'Y')
-            {
-                ?>
-                <div class="item_economy_price" id="<?=$itemIds['DISCOUNT_PRICE_ID']?>"
-                     style="display: <?=($showDiscount ? '' : 'none')?>;">
-                    <?
-                    if ($showDiscount)
-                    {
-                        echo Loc::getMessage('CT_BCE_CATALOG_ECONOMY_INFO2', array('#ECONOMY#' => $price['PRINT_RATIO_DISCOUNT']));
-                    }
-                    ?>
-                </div>
-                <?
+            ?><span  id="<?=$itemIds['PRICE_ID']?>"><?=$price['PRINT_RATIO_PRICE']?></span><?
+            if ($arParams['SHOW_OLD_PRICE'] === 'Y') {
+            ?><div class="item_economy_price" id="<?=$itemIds['DISCOUNT_PRICE_ID']?>"style="display: <?=($showDiscount ? '' : 'none')?>;"><?
+                if ($showDiscount) {
+                    echo Loc::getMessage('CT_BCE_CATALOG_ECONOMY_INFO2', array('#ECONOMY#' => $price['PRINT_RATIO_DISCOUNT']));
+                }
+            ?></div><?
             }
-            ?>
+            ?></div>
+        </div>
+        <div class="good-content-nav">
+            <div class="good-content-nav__prev"></div>
+            <div class="good-content-nav__text">Swipe</div>
+            <div class="good-content-nav__next"></div>
         </div>
         <div class="good-content__info">
-            <?=$arResult['DETAIL_TEXT']?>
-            <br/>
-            <br/>
-            <?foreach ($arResult['PROPERTIES']['CML2_ATTRIBUTES']['VALUE'] as $key=>$attribute){
+            <?=$arResult['DETAIL_TEXT']?><br/>
+            <br/><?
+            foreach ($arResult['PROPERTIES']['CML2_ATTRIBUTES']['VALUE'] as $key=>$attribute){
                 echo $attribute.': '.$arResult['PROPERTIES']['CML2_ATTRIBUTES']['DESCRIPTION'][$key].'<br/>';
-            }?>
-            <div>Артикул: <?=$arResult['PROPERTIES']['CML2_ARTICLE']['VALUE']?></div>
-        </div>
-<?if ($haveOffers && !empty($arResult['OFFERS_PROP']))
+            }
+            ?><div>Артикул: <?=$arResult['PROPERTIES']['CML2_ARTICLE']['VALUE']?></div>
+        </div><?
+if ($haveOffers && !empty($arResult['OFFERS_PROP']))
 {
-    ?><div id="<?=$itemIds['TREE_ID']?>"><?
+    ?><div id="<?=$itemIds['TREE_ID']?>" class="good-content-params"><?
         foreach ($arResult['SKU_PROPS'] as $skuProperty)
         {
             if (!isset($arResult['OFFERS_PROP'][$skuProperty['CODE']]))
@@ -286,15 +262,15 @@ function getColor ( $id , $filter = []){
                 'VALUES_COUNT' => $skuProperty['VALUES_COUNT']
             );
 
-            if($skuProperty['CODE'] == 'TSVET'){?>
-                <div class="product-item-detail-info-container good-content-colorWrap" data-entity="sku-line-block">
+            if($skuProperty['CODE'] == 'TSVET'){
+                ?><div class="product-item-detail-info-container good-content-colorWrap" data-entity="sku-line-block">
                     <div class="good-content-color-view">
                         <span style="" class="good-content-color-view__span"></span>
-                        <p class="good-content-color-view__color"></p>
-                        <?if(count($skuProperty['VALUES'])>2){?>
-                            <button class="good-content-color-view__btn">Еще</button>
-                        <?}?>
-                    </div>
+                        <p class="good-content-color-view__color"></p><?
+                        if(count($skuProperty['VALUES'])>2){
+                            ?><button class="good-content-color-view__btn">Еще</button><?
+                        }
+                    ?></div>
                     <ul class="good-content-color product-item-scu-item-list"><?
                         foreach ($skuProperty['VALUES'] as $key=>&$value) {
                             $value['NAME'] = htmlspecialcharsbx($value['NAME']);
@@ -321,41 +297,29 @@ function getColor ( $id , $filter = []){
                         </li><?
                     }
                 ?></ul>
-            </div>
-            <?}?>
+            </div><?
+            }?>
             <?
         }
-        ?>
-    </div>
-    <?
-}?>
-        <div class="good-content__add" id="<?=$itemIds['BASKET_ACTIONS_ID']?>" style="display: <?=($actualItem['CAN_BUY'] ? '' : 'none')?>;">
-            <?
+    ?></div><?
+}?><div class="good-content__add" id="<?=$itemIds['BASKET_ACTIONS_ID']?>" style="display: <?=($actualItem['CAN_BUY'] ? '' : 'none')?>;"><?
             if ($showAddBtn)
             {
-                ?>
-                    <a class="<?=$showButtonClassName?>" id="<?=$itemIds['ADD_BASKET_LINK']?>"
+                ?><a class="<?=$showButtonClassName?>" id="<?=$itemIds['ADD_BASKET_LINK']?>"
                        href="javascript:void(0);">
                         <span><?=$arParams['MESS_BTN_ADD_TO_BASKET']?></span>
-                    </a>
-                <?
+                </a><?
             }
-
             if ($showBuyBtn)
             {
-                ?>
-                    <a class="<?=$buyButtonClassName?>" id="<?=$itemIds['BUY_LINK']?>"
+                ?><a class="<?=$buyButtonClassName?>" id="<?=$itemIds['BUY_LINK']?>"
                        href="javascript:void(0);">
                         <span><?=$arParams['MESS_BTN_BUY']?></span>
-                    </a>
-                <?
+                </a><?
             }
-            ?>
-        </div>
-        <?
+        ?></div><?
         if ($showSubscribe)
         {
-            ?><?
                 $APPLICATION->IncludeComponent(
                     'bitrix:catalog.product.subscribe',
                     '',
@@ -370,10 +334,8 @@ function getColor ( $id , $filter = []){
                     $component,
                     array('HIDE_ICONS' => 'Y')
                 );
-                ?><?
         }
-        ?>
-        <a class="good-content__add" id="<?=$itemIds['NOT_AVAILABLE_MESS']?>"
+        ?><a class="good-content__add" id="<?=$itemIds['NOT_AVAILABLE_MESS']?>"
                    href="javascript:void(0)"
                    rel="nofollow" style="display: <?=(!$actualItem['CAN_BUY'] ? '' : 'none')?>;">
                     <?=$arParams['MESS_NOT_AVAILABLE']?>
@@ -426,18 +388,13 @@ function getColor ( $id , $filter = []){
         }
         else
         {
-            ?>
-            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            ?><span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 			<meta itemprop="price" content="<?=$price['RATIO_PRICE']?>" />
 			<meta itemprop="priceCurrency" content="<?=$price['CURRENCY']?>" />
 			<link itemprop="availability" href="http://schema.org/<?=($actualItem['CAN_BUY'] ? 'InStock' : 'OutOfStock')?>" />
-		</span>
-            <?
+		</span><?
         }
-        ?>
-    </div>
-
-<?
+        ?></div><?
 if ($haveOffers)
 {
 	$offerIds = array();
@@ -749,8 +706,7 @@ if ($arParams['DISPLAY_COMPARE'])
 		'COMPARE_PATH' => $arParams['COMPARE_PATH']
 	);
 }
-?>
-    </div>
+?></div>
 <script>
 	BX.message({
 		ECONOMY_INFO_MESSAGE: '<?=GetMessageJS('CT_BCE_CATALOG_ECONOMY_INFO2')?>',

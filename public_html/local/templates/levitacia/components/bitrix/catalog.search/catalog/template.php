@@ -73,9 +73,7 @@ else
 	}
 	unset($searchQuery);
 }
-?>
-    <div class="main">
-        <?
+?><div class="main"><?
         $APPLICATION->IncludeComponent(
             "bitrix:catalog.smart.filter",
             "catalog",
@@ -226,7 +224,4 @@ else
                 $arResult["THEME_COMPONENT"],
                 array('HIDE_ICONS' => 'N')
             );
-        }?>
-    </div>
-
-<?
+        }?></div>

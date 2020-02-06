@@ -100,11 +100,8 @@ if (isset($arResult['ITEM']))
 
 	$buttonSizeClass = isset($arResult['BIG_BUTTONS']) && $arResult['BIG_BUTTONS'] === 'Y' ? 'btn-md' : 'btn-sm';
 	$itemHasDetailUrl = isset($item['DETAIL_PAGE_URL']) && $item['DETAIL_PAGE_URL'] != '';
-	?>
-
-	<div class="product-item-container<?=(isset($arResult['SCALABLE']) && $arResult['SCALABLE'] === 'Y' ? ' product-item-scalable-card' : '')?>"
-		id="<?=$areaId?>" data-entity="item">
-		<?
+	?><div class="product-item-container<?=(isset($arResult['SCALABLE']) && $arResult['SCALABLE'] === 'Y' ? ' product-item-scalable-card' : '')?>"
+		id="<?=$areaId?>" data-entity="item"><?
 		$documentRoot = Main\Application::getDocumentRoot();
 		$templatePath = strtolower($arResult['TYPE']).'/template.php';
 		$file = new Main\IO\File($documentRoot.$templateFolder.'/'.$templatePath);
@@ -287,11 +284,9 @@ if (isset($arResult['ITEM']))
 				'JS_OFFERS' => $item['JS_OFFERS']
 			)
 		);
-		?>
-		<script>
+		?><script>
 		  var <?=$obName?> = new JCCatalogItem(<?=CUtil::PhpToJSObject($jsParams, false, true)?>);
 		</script>
-	</div>
-	<?
+	</div><?
 	unset($item, $actualItem, $minOffer, $itemIds, $jsParams);
 }

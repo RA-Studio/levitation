@@ -2,11 +2,10 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("TITLE", "Оформление заказа");
 $APPLICATION->SetTitle("Оформление заказа");
-?>
-    <div class="basket">
+?><div class="basket">
         <div class="container">
-            <h1 class="title"><?=$APPLICATION->ShowTitle()?></h1>
-            <?$APPLICATION->IncludeComponent(
+            <h1 class="title"><?=$APPLICATION->ShowTitle()?></h1><?
+            $APPLICATION->IncludeComponent(
 	"bitrix:sale.order.ajax", 
 	"order", 
 	array(
@@ -89,7 +88,6 @@ $APPLICATION->SetTitle("Оформление заказа");
 		)
 	),
 	false
-);?>
-        </div>
-    </div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);
+     ?></div>
+</div><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,11 +1,8 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-
 <?if (!empty($arResult)):?>
-
 <?
 $previousLevel = 0;
 foreach($arResult as $arItem):?>
-
 	<?if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
 		<?=str_repeat("</div>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
 	<?endif?>
@@ -14,7 +11,6 @@ foreach($arResult as $arItem):?>
         <?=$arItem["TEXT"]?>
         </div>
             <div class="header-menu__content">
-
 	<?else:?>
 		<?if ($arItem["PERMISSION"] > "D"):?>
             <div class="header-menu__item">
@@ -27,9 +23,7 @@ foreach($arResult as $arItem):?>
 		<?endif?>
 	<?endif?>
 	<?$previousLevel = $arItem["DEPTH_LEVEL"];?>
-
 <?endforeach?>
-
 <?if ($previousLevel > 1)://close last item tags?>
 	<?=str_repeat("</div>", ($previousLevel-1) );?>
 <?endif?>

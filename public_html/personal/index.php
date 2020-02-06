@@ -1,6 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Title");
+$APPLICATION->SetPageProperty("TITLE", "Мой профиль / _Levitacia^");
+$APPLICATION->SetPageProperty("keywords", "Мой профиль / _Levitacia^");
+$APPLICATION->SetPageProperty("description", "Мой профиль / _Levitacia^");
+$APPLICATION->SetTitle("Мой профиль / _Levitacia^");
 global $USER;
 if (!$USER->IsAuthorized()) {
     LocalRedirect('/personal/login/');

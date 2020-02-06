@@ -68,12 +68,8 @@ if ($isFilter)
 	if (!isset($arCurSection))
 		$arCurSection = array();
 }
-?>
-<div class="row">
-<?
 if ($isVerticalFilter)
 	include($_SERVER["DOCUMENT_ROOT"]."/".$this->GetFolder()."/section_vertical.php");
 else
 	include($_SERVER["DOCUMENT_ROOT"]."/".$this->GetFolder()."/section_horizontal.php");
 ?>
-</div>

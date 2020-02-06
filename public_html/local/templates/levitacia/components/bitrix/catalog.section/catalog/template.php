@@ -13,8 +13,6 @@ use \Bitrix\Main\Localization\Loc;
  */
 
 $this->setFrameMode(true);
-//$this->addExternalCss('/bitrix/css/main/bootstrap.css');
-
 if (!empty($arResult['NAV_RESULT']))
 {
 	$navParams =  array(
@@ -236,191 +234,30 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
             array('HIDE_ICONS' => 'Y')
         );
     }
-    ?>
-    <?/*
-
-        <a class="main-items-card" href="#">
-            <div class="main-items-card-img">
-                <div class="main-items-card-img-top">
-                    <img src="/local/templates/levitacia/assets/images/card2.jpg" alt="">
-                </div>
-                <div class="main-items-card-img-bot">
-                    <img src="/local/templates/levitacia/assets/images/card2-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="main-items-card-info">
-                <div class="main-items-card-info__title">
-                    Ice cream skull hoodie
-                </div>
-                <div class="main-items-card-info__status">
-                    Available Now
-                </div>
-                <div class="main-items-card-info__price">
-                    ₽ 36.775
-                </div>
-            </div>
-        </a>
-        <a class="main-items-card" href="#">
-            <div class="main-items-card-img">
-                <div class="main-items-card-img-top">
-                    <img src="/local/templates/levitacia/assets/images/card1.jpg" alt="">
-                </div>
-                <div class="main-items-card-img-bot">
-                    <img src="/local/templates/levitacia/assets/images/card1-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="main-items-card-info">
-                <div class="main-items-card-info__title">
-                    Ice cream skull hoodie cream skull hoodie
-                </div>
-                <div class="main-items-card-info__status">
-                    Available Now
-                </div>
-                <div class="main-items-card-info__price">
-                    ₽ 36.775
-                </div>
-            </div>
-        </a>
-        <a class="main-items-card" href="#">
-            <div class="main-items-card-img">
-                <div class="main-items-card-img-top">
-                    <img src="/local/templates/levitacia/assets/images/card2.jpg" alt="">
-                </div>
-                <div class="main-items-card-img-bot">
-                    <img src="/local/templates/levitacia/assets/images/card2-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="main-items-card-info">
-                <div class="main-items-card-info__title">
-                    Ice cream skull hoodie
-                </div>
-                <div class="main-items-card-info__status">
-                    Available Now
-                </div>
-                <div class="main-items-card-info__price">
-                    ₽ 36.775
-                </div>
-            </div>
-        </a>
-        <a class="main-items-card" href="#">
-            <div class="main-items-card-img">
-                <div class="main-items-card-img-top">
-                    <img src="/local/templates/levitacia/assets/images/card1.jpg" alt="">
-                </div>
-                <div class="main-items-card-img-bot">
-                    <img src="/local/templates/levitacia/assets/images/card1-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="main-items-card-info">
-                <div class="main-items-card-info__title">
-                    Ice cream skull hoodie cream skull hoodie
-                </div>
-                <div class="main-items-card-info__status">
-                    Available Now
-                </div>
-                <div class="main-items-card-info__price">
-                    ₽ 36.775
-                </div>
-            </div>
-        </a>
-        <a class="main-items-card" href="#">
-            <div class="main-items-card-img">
-                <div class="main-items-card-img-top">
-                    <img src="/local/templates/levitacia/assets/images/card2.jpg" alt="">
-                </div>
-                <div class="main-items-card-img-bot">
-                    <img src="/local/templates/levitacia/assets/images/card2-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="main-items-card-info">
-                <div class="main-items-card-info__title">
-                    Ice cream skull hoodie
-                </div>
-                <div class="main-items-card-info__status">
-                    Available Now
-                </div>
-                <div class="main-items-card-info__price">
-                    ₽ 36.775
-                </div>
-            </div>
-        </a>
-        <a class="main-items-card" href="#">
-            <div class="main-items-card-img">
-                <div class="main-items-card-img-top">
-                    <img src="/local/templates/levitacia/assets/images/card1.jpg" alt="">
-                </div>
-                <div class="main-items-card-img-bot">
-                    <img src="/local/templates/levitacia/assets/images/card1-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="main-items-card-info">
-                <div class="main-items-card-info__title">
-                    Ice cream skull hoodie cream skull hoodie
-                </div>
-                <div class="main-items-card-info__status">
-                    Available Now
-                </div>
-                <div class="main-items-card-info__price">
-                    ₽ 36.775
-                </div>
-            </div>
-        </a>
-        <a class="main-items-card" href="#">
-            <div class="main-items-card-img">
-                <div class="main-items-card-img-top">
-                    <img src="/local/templates/levitacia/assets/images/card2.jpg" alt="">
-                </div>
-                <div class="main-items-card-img-bot">
-                    <img src="/local/templates/levitacia/assets/images/card2-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="main-items-card-info">
-                <div class="main-items-card-info__title">
-                    Ice cream skull hoodie
-                </div>
-                <div class="main-items-card-info__status">
-                    Available Now
-                </div>
-                <div class="main-items-card-info__price">
-                    ₽ 36.775
-                </div>
-            </div>
-        </a>
-    */?>
-</div>
-
-<?/**/?>
-
-
-<?
+    ?></div><?
 if ($showLazyLoad)
 {
-	?>
-	<div style="display: none" class="row bx-<?=$arParams['TEMPLATE_THEME']?>">
+	?><div style="display: none" class="row bx-<?=$arParams['TEMPLATE_THEME']?>">
 		<div class="btn btn-default btn-lg center-block" style="margin: 15px;"
 			data-use="show-more-<?=$navParams['NavNum']?>">
 			<?=$arParams['MESS_BTN_LAZY_LOAD']?>
 		</div>
-	</div>
-	<?
+	</div><?
 }
 
 if ($showBottomPager)
 {
-	?>
-	<div data-pagination-num="<?=$navParams['NavNum']?>">
+	?><div data-pagination-num="<?=$navParams['NavNum']?>">
 		<!-- pagination-container -->
 		<?=$arResult['NAV_STRING']?>
 		<!-- pagination-container -->
-	</div>
-	<?
+	</div><?
 }
 
 $signer = new \Bitrix\Main\Security\Sign\Signer;
 $signedTemplate = $signer->sign($templateName, 'catalog.section');
 $signedParams = $signer->sign(base64_encode(serialize($arResult['ORIGINAL_PARAMETERS'])), 'catalog.section');
-?>
-<script>
+?><script>
 	BX.message({
 		BTN_MESSAGE_BASKET_REDIRECT: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_BASKET_REDIRECT')?>',
 		BASKET_URL: '<?=$arParams['BASKET_URL']?>',

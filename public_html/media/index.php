@@ -1,8 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("TITLE", "Медиа");
-$APPLICATION->SetPageProperty("description", "Медиа");
-$APPLICATION->SetTitle("Медиа");
+$APPLICATION->SetPageProperty("TITLE", "Медиа / _Levitacia^");
+$APPLICATION->SetPageProperty("description", "Медиа / _Levitacia^");
+$APPLICATION->SetTitle("Медиа / _Levitacia^");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"media",

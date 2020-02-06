@@ -32,3 +32,4 @@ Disallow: /*?bxajaxid=
 Disallow: /*&bxajaxid=
 Disallow: /*?view_result=
 Disallow: /*&view_result=
+Sitemap: http://www.levitacia.rnet20fk.beget.tech/sitemap.xml
