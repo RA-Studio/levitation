@@ -1,14 +1,3 @@
-<!--<div class="banners">
-    <a class="banners-item" href="#" style="background-image:url('<?/*=SITE_TEMPLATE_PATH*/?>/assets/images/banners-item.jpg')">
-        <span style="bottom: 100px">Special Offer</span>
-    </a>
-    <a class="banners-item" href="#" style="background-image:url('<?/*=SITE_TEMPLATE_PATH*/?>/assets/images/banners-item.jpg')">
-        <span style="bottom: 100px">Special Offer</span>
-    </a>
-    <a class="banners-item" href="#" style="background-image:url('<?/*=SITE_TEMPLATE_PATH*/?>/assets/images/banners-item.jpg')">
-        <span style="bottom: 100px">Special Offer</span>
-    </a>
-</div>-->
 <?$APPLICATION->IncludeComponent(
     "bitrix:news.list",
     "stockSide",

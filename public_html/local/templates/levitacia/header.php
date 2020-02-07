@@ -23,7 +23,9 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/assets/scripts/slick/slick.css');
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/assets/scripts/slick/slick-theme.css');
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/assets/styles/app.min.css');
-    ?><!--JS--><?
+    ?><!--JS-->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>
+    <?
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/jquery.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/fancybox/jquery.fancybox.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/slick/slick.min.js");
@@ -101,18 +103,6 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
             <div class="header-menu__close">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
             </div>
-          <!--
-            <div class="header-menu-lang">
-                <a class="header-menu-lang__item active" href="/en/">EN</a>
-                <a class="header-menu-lang__item" href="/">RU</a>
-            </div>
-          -->
-            <!--<div class="header-menu__item">
-                <a href="login.html">Login</a>
-            </div>
-            <div class="header-menu__item" id="basket">
-                <a href="basket-empty.html">Shopping bag<span> (0)</span></a>
-            </div>-->
             <?$APPLICATION->IncludeComponent(
                 "bitrix:sale.basket.basket.line",
                 "basketLink",
@@ -180,89 +170,6 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                 )
             );?>
             <?
-            /*
-            $APPLICATION->IncludeComponent(
-                "bitrix:catalog.search",
-                "",
-                Array(
-                    "ACTION_VARIABLE" => "action",
-                    "AJAX_MODE" => "N",
-                    "AJAX_OPTION_ADDITIONAL" => "",
-                    "AJAX_OPTION_HISTORY" => "N",
-                    "AJAX_OPTION_JUMP" => "N",
-                    "AJAX_OPTION_STYLE" => "Y",
-                    "BASKET_URL" => "/personal/basket.php",
-                    "CACHE_TIME" => "36000000",
-                    "CACHE_TYPE" => "A",
-                    "CHECK_DATES" => "N",
-                    "CONVERT_CURRENCY" => "N",
-                    "DETAIL_URL" => "",
-                    "DISPLAY_BOTTOM_PAGER" => "Y",
-                    "DISPLAY_COMPARE" => "N",
-                    "DISPLAY_TOP_PAGER" => "N",
-                    "ELEMENT_SORT_FIELD" => "sort",
-                    "ELEMENT_SORT_FIELD2" => "id",
-                    "ELEMENT_SORT_ORDER" => "asc",
-                    "ELEMENT_SORT_ORDER2" => "desc",
-                    "HIDE_NOT_AVAILABLE" => "N",
-                    "HIDE_NOT_AVAILABLE_OFFERS" => "N",
-                    "IBLOCK_ID" => "",
-                    "IBLOCK_TYPE" => "rest_entity",
-                    "LINE_ELEMENT_COUNT" => "3",
-                    "NO_WORD_LOGIC" => "N",
-                    "OFFERS_LIMIT" => "5",
-                    "PAGER_DESC_NUMBERING" => "N",
-                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                    "PAGER_SHOW_ALL" => "N",
-                    "PAGER_SHOW_ALWAYS" => "N",
-                    "PAGER_TEMPLATE" => ".default",
-                    "PAGER_TITLE" => "Товары",
-                    "PAGE_ELEMENT_COUNT" => "30",
-                    "PRICE_CODE" => array(),
-                    "PRICE_VAT_INCLUDE" => "Y",
-                    "PRODUCT_ID_VARIABLE" => "id",
-                    "PRODUCT_PROPERTIES" => array(),
-                    "PRODUCT_PROPS_VARIABLE" => "prop",
-                    "PRODUCT_QUANTITY_VARIABLE" => "quantity",
-                    "PROPERTY_CODE" => array("",""),
-                    "RESTART" => "N",
-                    "SECTION_ID_VARIABLE" => "SECTION_ID",
-                    "SECTION_URL" => "",
-                    "SHOW_PRICE_COUNT" => "1",
-                    "USE_LANGUAGE_GUESS" => "Y",
-                    "USE_PRICE_COUNT" => "N",
-                    "USE_PRODUCT_QUANTITY" => "N"
-                ),
-                array("HIDE_ICONS"=>"N")
-            );
-            $APPLICATION->IncludeComponent(
-                "bitrix:sale.basket.basket.line",
-                "",
-                Array(
-                    "HIDE_ON_BASKET_PAGES" => "Y",
-                    "PATH_TO_AUTHORIZE" => "",
-                    "PATH_TO_BASKET" => SITE_DIR."personal/cart/",
-                    "PATH_TO_ORDER" => SITE_DIR."personal/order/make/",
-                    "PATH_TO_PERSONAL" => SITE_DIR."personal/",
-                    "PATH_TO_PROFILE" => SITE_DIR."personal/",
-                    "PATH_TO_REGISTER" => SITE_DIR."login/",
-                    "POSITION_FIXED" => "N",
-                    "SHOW_AUTHOR" => "Y",
-                    "SHOW_DELAY" => "N",
-                    "SHOW_EMPTY_VALUES" => "Y",
-                    "SHOW_IMAGE" => "Y",
-                    "SHOW_NOTAVAIL" => "N",
-                    "SHOW_NUM_PRODUCTS" => "Y",
-                    "SHOW_PERSONAL_LINK" => "Y",
-                    "SHOW_PRICE" => "Y",
-                    "SHOW_PRODUCTS" => "Y",
-                    "SHOW_REGISTRATION" => "Y",
-                    "SHOW_SUMMARY" => "Y",
-                    "SHOW_TOTAL_PRICE" => "Y"
-                ),
-                array("HIDE_ICONS"=>"N")
-            );
-           */
             $APPLICATION->IncludeComponent(
                     "bitrix:menu",
                     "top",

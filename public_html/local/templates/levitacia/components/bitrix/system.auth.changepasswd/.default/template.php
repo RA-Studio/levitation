@@ -2,20 +2,6 @@
 <?
 ShowMessage($arParams["~AUTH_RESULT"]);
 ?>
-<?/*
-<form >
-    <label for="email" class="lk-tab__label">Email</label>
-    <input type="text" class="lk-tab__input" name="email" id="email" placeholder="">
-    <label for="pass" class="lk-tab__label">Пароль</label>
-    <input type="text" class="lk-tab__input" name="pass" id="pass" placeholder="">
-    <label for="remember" class="lk-tab__rowlabel">
-        <input type="checkbox" id="remember" name="remember">
-        <span></span>
-        <span>Запомнить меня</span>
-    </label>
-    <button class="lk-tab__submit">Создать</button>
-</form>
-*/?>
 <form class="lk-tab" id="lk-acc2" method="post" action="<?=$arResult["AUTH_FORM"]?>" name="bform">
     <?if (strlen($arResult["BACKURL"]) > 0): ?>
         <input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />

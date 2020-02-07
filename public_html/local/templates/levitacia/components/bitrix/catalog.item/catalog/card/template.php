@@ -25,10 +25,10 @@ use \Bitrix\Main\Localization\Loc;
     <a class="main-items-card" href="<?=$item['DETAIL_PAGE_URL']?>">
         <div class="main-items-card-img">
             <div class="main-items-card-img-top">
-                <img src="<?=$item['PREVIEW_PICTURE']['SRC']?>" alt="<?=$item['PREVIEW_PICTURE']['ALT']?>">
+                <img class="lazy" src="<?=SITE_TEMPLATE_PATH?>/assets/images/load.gif" data-src="<?=$item['PREVIEW_PICTURE']['SRC']?>" alt="<?=$item['PREVIEW_PICTURE']['ALT']?>">
             </div>
             <div class="main-items-card-img-bot">
-                <img src="<?=$item['DETAIL_PICTURE']['SRC']?$item['DETAIL_PICTURE']['SRC']:$item['PREVIEW_PICTURE']['SRC']?>" alt="<?=$item['DETAIL_PICTURE']['ALT']?>">
+                <img class="lazy" src="<?=SITE_TEMPLATE_PATH?>/assets/images/load.gif" data-src="<?=$item['DETAIL_PICTURE']['SRC']?$item['DETAIL_PICTURE']['SRC']:$item['PREVIEW_PICTURE']['SRC']?>" alt="<?=$item['DETAIL_PICTURE']['ALT']?>">
             </div>
         </div>
             <span class="product-item-image-wrapper" style="display: none" data-entity="image-wrapper">

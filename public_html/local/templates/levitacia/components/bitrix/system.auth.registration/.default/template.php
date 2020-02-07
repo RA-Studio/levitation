@@ -72,8 +72,4 @@ ShowMessage($arParams["~AUTH_RESULT"]);
         <input class="lk-tab__submit" type="submit" name="Register" value="Создать" />
     </form>
 </noindex>
-<!--<script type="text/javascript">
-document.bform.USER_NAME.focus();
-</script>-->
-
 <?}?>

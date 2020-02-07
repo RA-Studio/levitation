@@ -1,15 +1,7 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
-<?/*
-ShowMessage($arParams["~AUTH_RESULT"]);
-ShowMessage($arResult['ERROR_MESSAGE']);
-*/?>
-    <?/*if($arResult["AUTH_SERVICES"]):?>
-        <div class="bx-auth-title"><?echo GetMessage("AUTH_TITLE")?></div>
-    <?endif*/?>
 <noindex>
-	<!--<div class="bx-auth-note"><?/*=GetMessage("AUTH_PLEASE_AUTH")*/?></div>-->
         <form name="form_auth" id="lk-acc1" class="lk-tab active" method="post" target="_top" action="<?=$arResult["AUTH_URL"]?>">
             <input type="hidden" name="AUTH_FORM" value="Y" />
             <input type="hidden" name="TYPE" value="AUTH" />
@@ -25,27 +17,22 @@ ShowMessage($arResult['ERROR_MESSAGE']);
             <input class="lk-tab__input" type="password" id="password" name="USER_PASSWORD" value="" placeholder="" required="">
             <?if($arResult["SECURE_AUTH"]):?>
                 <span class="bx-auth-secure" id="bx_auth_secure" title="<?echo GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
-                                        <div class="bx-auth-secure-icon"></div>
-                                    </span>
+                    <div class="bx-auth-secure-icon"></div>
+                </span>
                 <noscript>
-                                    <span class="bx-auth-secure" title="<?echo GetMessage("AUTH_NONSECURE_NOTE")?>">
-                                        <div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
-                                    </span>
+                    <span class="bx-auth-secure" title="<?echo GetMessage("AUTH_NONSECURE_NOTE")?>">
+                        <div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
+                    </span>
                 </noscript>
                 <script type="text/javascript">
                     document.getElementById('bx_auth_secure').style.display = 'inline-block';
                 </script>
             <?endif?>
             <?if($arResult["CAPTCHA_CODE"]):?>
-                <tr>
-                    <td></td>
-                    <td><input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
-                        <img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></td>
-                </tr>
-                <tr>
-                    <td class="bx-auth-label"><?echo GetMessage("AUTH_CAPTCHA_PROMT")?>:</td>
-                    <td><input class="bx-auth-input form-control" type="text" name="captcha_word" maxlength="50" value="" size="15" /></td>
-                </tr>
+                <input class="lk-tab__input" type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
+                <img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA"/>
+                <label class="lk-tab__label" for="pass"><?echo GetMessage("AUTH_CAPTCHA_PROMT")?></label>
+                <input class="lk-tab__input" type="text" name="captcha_word" maxlength="50" value="" size="15" />
             <?endif;?>
             <?if ($arResult["STORE_PASSWORD"] == "Y"):?>
                 <label for="USER_REMEMBER" class="lk-tab__rowlabel">&nbsp;
@@ -53,8 +40,6 @@ ShowMessage($arResult['ERROR_MESSAGE']);
                     <span></span>
                     <span><?=GetMessage("AUTH_REMEMBER_ME")?></span>
                 </label>
-                <!--<input type="checkbox" id="USER_REMEMBER" name="USER_REMEMBER" value="Y" />
-                <label for="USER_REMEMBER">&nbsp;<?/*=GetMessage("AUTH_REMEMBER_ME")*/?></label>-->
             <?endif?>
             <a href="/personal/forgot/<?//=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>" class="lk-form__forgot" rel="nofollow"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a>
             <input type="submit" class="lk-tab__submit"  name="Login" value="<?=GetMessage("AUTH_AUTHORIZE")?>" />
@@ -78,21 +63,6 @@ ShowMessage($arResult['ERROR_MESSAGE']);
                 );?>
             <?endif?>
         </form>
-<?/*
-        <form class="lk-tab active" id="lk-acc2">
-            <label for="email" class="lk-tab__label">Email</label>
-            <input type="text" class="lk-tab__input" name="email" id="email" placeholder="">
-            <label for="pass" class="lk-tab__label">Пароль</label>
-            <input type="text" class="lk-tab__input" name="pass" id="pass" placeholder="">
-            <label for="remember" class="lk-tab__rowlabel">
-                <input type="checkbox" id="remember" name="remember">
-                <span></span>
-                <span>Запомнить меня</span>
-            </label>
-            <button class="lk-tab__submit">Создать</button>
-        </form>
-        */?>
-
 </noindex>
 <script type="text/javascript">
 <?if (strlen($arResult["LAST_LOGIN"])>0):?>

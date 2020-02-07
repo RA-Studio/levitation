@@ -1,6 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("TITLE", "Пользовательское соглашение");
+$APPLICATION->SetPageProperty("keywords", "Пользовательское соглашение / _Levitacia^");
+$APPLICATION->SetPageProperty("description", "Пользовательское соглашение / _Levitacia^");
+$APPLICATION->SetPageProperty("TITLE", "Пользовательское соглашение / _Levitacia^");
 $APPLICATION->SetTitle("Пользовательское соглашение");
 ?><div class="container inner">
 	<div class="text">

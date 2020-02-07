@@ -1,6 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("TITLE", "Публичная оферта");
+$APPLICATION->SetPageProperty("keywords", "Публичная оферта / _Levitacia^");
+$APPLICATION->SetPageProperty("description", "Публичная оферта / _Levitacia^");
+$APPLICATION->SetPageProperty("TITLE", "Публичная оферта / _Levitacia^");
 $APPLICATION->SetTitle("Публичная оферта");
 ?><div class="container inner">
 	<div class="text">

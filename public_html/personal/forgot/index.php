@@ -1,8 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Title");
-?>
-    <div class="lk-acc tabs">
+$APPLICATION->SetPageProperty("TITLE", "Восстановление пароля / _Levitacia^");
+$APPLICATION->SetPageProperty("description", "Восстановление пароля / _Levitacia^");
+$APPLICATION->SetTitle("Восстановление пароля / _Levitacia^");
+?><div class="lk-acc tabs">
         <div class="lk-nav">
             <a href="#lk-acc1" class="lk-nav__item active">Выслать данные</a> <a href="#lk-acc2" class="lk-nav__item">Восстановить</a>
         </div>
@@ -27,5 +28,4 @@ $APPLICATION->SetTitle("Title");
             )
         );?>
     </div>
-
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

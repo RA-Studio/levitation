@@ -1,20 +1,6 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
 ShowMessage($arParams["~AUTH_RESULT"]);
 ?>
-<?/*
-<form class="lk-tab" id="lk-acc3">
-    <label for="email" class="lk-tab__label">Email</label>
-    <input type="text" class="lk-tab__input" name="email" id="email" placeholder="">
-    <label for="pass" class="lk-tab__label">Пароль</label>
-    <input type="text" class="lk-tab__input" name="pass" id="pass" placeholder="">
-    <label for="remember" class="lk-tab__rowlabel">
-        <input type="checkbox" id="remember" name="remember">
-        <span></span>
-        <span>Запомнить меня</span>
-    </label>
-    <button class="lk-tab__submit">Создать</button>
-</form>
-*/?>
 <form class="lk-tab active" id="lk-acc1" name="bform" method="post" target="_top" action="<?=$arResult["AUTH_URL"]?>"
 >
     <?if (strlen($arResult["BACKURL"]) > 0){?>

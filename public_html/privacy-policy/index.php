@@ -1,6 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("TITLE", "Политика конфиденциальности");
+$APPLICATION->SetPageProperty("keywords", "Политика конфиденциальности / _Levitacia^");
+$APPLICATION->SetPageProperty("description", "Политика конфиденциальности / _Levitacia^");
+$APPLICATION->SetPageProperty("TITLE", "Политика конфиденциальности / _Levitacia^");
 $APPLICATION->SetTitle("Политика конфиденциальности");
 ?><div class="container inner">
 	<div class="text">

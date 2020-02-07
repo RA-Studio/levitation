@@ -1,6 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Контакты");
+$APPLICATION->SetPageProperty("TITLE", "Контакты / _Levitacia^");
+$APPLICATION->SetPageProperty("keywords", "Контакты / _Levitacia^");
+$APPLICATION->SetPageProperty("description", "Контакты / _Levitacia^");
+$APPLICATION->SetTitle("Контакты / _Levitacia^");
 ?><div class="container inner">
     <h1 class="title"><?=$APPLICATION->ShowTitle(false)?></h1>
     <div class="contacts">

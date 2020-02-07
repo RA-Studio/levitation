@@ -1064,7 +1064,8 @@ img {
     margin-top: 280px;
     margin-left: 97px;
     position: relative;
-    z-index: 2
+    z-index: 2;
+    min-width: 130px;
 }
 
 .main-filters__title {
@@ -1074,7 +1075,8 @@ img {
     position: relative;
     padding-right: 20px;
     cursor: pointer;
-    margin-bottom: 3px
+    margin-bottom: 3px;
+    width: 100px;
 }
 
 .main-filters__title:after,
@@ -2863,7 +2865,7 @@ img {
 
 @media screen and (min-width: 768px) {
     .main-filters-categories-wrap{
-        position: absolute;
+        /*position: absolute;*/
     }
 
 }

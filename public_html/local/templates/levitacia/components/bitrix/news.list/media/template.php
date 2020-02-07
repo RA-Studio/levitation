@@ -22,7 +22,10 @@ foreach($arResult["ITEMS"] as $key=>$arItem){
         ?><div class="media"><?
         }
         ?><div class="media-item-wrap" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-            <a href="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" class="media-item" style="background-image: url('<?=$arItem['PREVIEW_PICTURE']['SRC']?>');" data-fancybox="gallery-<?=$arItem['ID']?>"><div class="media-item__title"><?=$arItem['NAME']?></div></a><div class="media-item-gallery" style="display: none;"><?
+            <a href="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" class="media-item" style="background-image: url('<?=$arItem['PREVIEW_PICTURE']['SRC']?>');" data-fancybox="gallery-<?=$arItem['ID']?>">
+                <div class="media-item__title"><?=$arItem['NAME']?></div>
+            </a>
+            <div class="media-item-gallery" style="display: none;"><?
                 foreach ($arItem['PROPERTIES']['UF_PHOTO']['VALUE'] as $value){
                     ?><a href="<?=CFile::GetPath($value)?>" alt="<?=$arItem['NAME']?>" data-fancybox="gallery-<?=$arItem['ID']?>"></a><?
                 }

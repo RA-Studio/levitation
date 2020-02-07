@@ -269,146 +269,7 @@ if (empty($arResult['ERROR_MESSAGE']))
                 </div>
             </div>
             <table id="basket-item-table"></table>
-            <?/*
-            <div class="basket-content-row">
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__img">
-                        <img src="<?=SITE_TEMPLSTE_PATH?>/assets/images/card1.jpg" alt="">
-                    </div>
-                    <div class="basket-content-row-col__title">
-                        PALM ANGELS<br>
-                        SWEATSHIRT HOODED<br>
-                        Size L
-                    </div>
-                </div>
-                <div class="basket-content-row-col">
-                    ₽ 36.775
-                </div>
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__minus">
-                        -
-                    </div>
-                    <input class="basket-content-row-col__input" type="text" value="1">
-                    <div class="basket-content-row-col__plus">
-                        +
-                    </div>
-                </div>
-                <div class="basket-content-row-col">
-                    ₽ 36.775
-                </div>
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__del">
-                    </div>
-                </div>
-            </div>
-            <div class="basket-content-row">
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__img">
-                        <img src="<?=SITE_TEMPLSTE_PATH?>/assets/images/card1.jpg" alt="">
-                    </div>
-                    <div class="basket-content-row-col__title">
-                        PALM ANGELS<br>
-                        SWEATSHIRT HOODED<br>
-                        Size L
-                    </div>
-                </div>
-                <div class="basket-content-row-col">
-                    ₽ 36.775
-                </div>
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__minus">
-                        -
-                    </div>
-                    <input class="basket-content-row-col__input" type="text" value="1">
-                    <div class="basket-content-row-col__plus">
-                        +
-                    </div>
-                </div>
-                <div class="basket-content-row-col">
-                    ₽ 36.775
-                </div>
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__del">
-                    </div>
-                </div>
-            </div>
-            <div class="basket-content-row">
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__img">
-                        <img src="<?=SITE_TEMPLSTE_PATH?>/assets/images/card1.jpg" alt="">
-                    </div>
-                    <div class="basket-content-row-col__title">
-                        PALM ANGELS<br>
-                        SWEATSHIRT HOODED<br>
-                        Size L
-                    </div>
-                </div>
-                <div class="basket-content-row-col">
-                    ₽ 36.775
-                </div>
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__minus">
-                        -
-                    </div>
-                    <input class="basket-content-row-col__input" type="text" value="1">
-                    <div class="basket-content-row-col__plus">
-                        +
-                    </div>
-                </div>
-                <div class="basket-content-row-col">
-                    ₽ 36.775
-                </div>
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__del">
-                    </div>
-                </div>
-            </div>
-            <div class="basket-content-row">
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__img">
-                        <img src="<?=SITE_TEMPLSTE_PATH?>/assets/images/card1.jpg" alt="">
-                    </div>
-                    <div class="basket-content-row-col__title">
-                        PALM ANGELS<br>
-                        SWEATSHIRT HOODED<br>
-                        Size L
-                    </div>
-                </div>
-                <div class="basket-content-row-col">
-                    ₽ 36.775
-                </div>
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__minus">
-                        -
-                    </div>
-                    <input class="basket-content-row-col__input" type="text" value="1">
-                    <div class="basket-content-row-col__plus">
-                        +
-                    </div>
-                </div>
-                <div class="basket-content-row-col">
-                    ₽ 36.775
-                </div>
-                <div class="basket-content-row-col">
-                    <div class="basket-content-row-col__del">
-                    </div>
-                </div>
-            </div>
-            */?>
 
-            <?/*
-			<div class="basket-items-list-container" id="basket-items-list-container">
-				<div class="basket-items-list-overlay" id="basket-items-list-overlay" style="display: none;"></div>
-				<div class="basket-items-list" id="basket-item-list">
-					<div class="basket-search-not-found" id="basket-item-list-empty-result" style="display: none;">
-						<div class="basket-search-not-found-icon"></div>
-						<div class="basket-search-not-found-text">
-							<?=Loc::getMessage('SBB_FILTER_EMPTY_RESULT')?>
-						</div>
-					</div>
-
-				</div>
-			</div>*/?>
             <?
             if (
                 $arParams['BASKET_WITH_ORDER_INTEGRATION'] !== 'Y'
@@ -451,16 +312,7 @@ if (empty($arResult['ERROR_MESSAGE']))
                     Оплата доступна только банковской картой или наличной оплатой при получении доставки.
                 </p>
 					<span class="txt-uppercase">Платежные системы</span><br><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo2.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo3.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/mir.png" alt=""><img style="height: 21px;" alt="alfabank" src="<?=SITE_TEMPLATE_PATH?>/assets/images/AlfaBank.png">
-                    <!--<span class="txt-uppercase">Credit cards</span><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo1.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo2.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo3.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo4.svg" alt="">-->
-                <!--<p>
-                    <span class="txt-uppercase">Other payment methods</span><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo5.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo6.svg" alt="">
-                </p>
-                <p>
-                    All the transactions and informations about the credit card use SSL/TLS communication products, guarantee of an always coded communication
-                </p>
-                <p>
-                    Contact us or check on customer service &amp; info for further information
-                </p>-->
+
 
               <p>
               • выбрали понравившийся товар<br>
@@ -473,47 +325,6 @@ if (empty($arResult['ERROR_MESSAGE']))
               Мы заботимся о Вашей безопасности и наш сайт поддерживает безопасную передачу данных по протоколу SSL. Наличие и актуальность протокола безопасности (передача данных и ввод каких-либо цифровых и буквенных значений зашифрован) определяется автоматически вашим браузером с устройства которого вы заходите, Вы поймёте это увидев значок замка или выделенную зелёным цветом адресную строку.
               </p>
             </div>
-       <!--<div class="basket-content-aside">
-            <div class="basket-content-aside-box">
-                <p>
-                    <strong>Palm Angels ships worldwide</strong><br>
-                    <br>
-                    <span class="txt-uppercase">Shipments within Italy are with DHL express</span>
-                </p>
-                <ul>
-                    <li>Delivery in 1-2 working days after your order has been accepted</li>
-                </ul>
-                <span class="txt-uppercase">Shipments within european countries are with dhl express</span>
-                <ul>
-                    <li>Delivery in 2-3 working days after your order has been accepted</li>
-                </ul>
-                <span class="txt-uppercase">Shipments outside european countries are with dhl express</span>
-                <ul>
-                    <li>Delivery in 4-5 working days after your order has been accepted</li>
-                </ul>
-                <span class="txt-uppercase">Shipments within Japan are with dhl express</span>
-                <ul>
-                    <li>Delivery in 4-5 working days after your order has been accepted</li>
-                </ul>
-                <span class="txt-uppercase">Free Returns Worldwide*</span>Contact us or check on customer service &amp; info for further information
-            </div>
-            <div class="basket-content-aside-box">
-                <p>
-                    <strong>Palm Angels accepts</strong><br>
-                    <br>
-                    <span class="txt-uppercase">Credit cards</span><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo1.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo2.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo3.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo4.svg" alt="">
-                </p>
-                <p>
-                    <span class="txt-uppercase">Other payment methods</span><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo5.svg" alt=""><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/basket-logo6.svg" alt="">
-                </p>
-                <p>
-                    All the transactions and informations about the credit card use SSL/TLS communication products, guarantee of an always coded communication
-                </p>
-                <p>
-                    Contact us or check on customer service &amp; info for further information
-                </p>
-            </div>
-        </div>-->
 	</div>
 	<?
 	if (!empty($arResult['CURRENCIES']) && Main\Loader::includeModule('currency'))

@@ -5,7 +5,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 
 if(ERROR_404 !== 'Y') {
     ?><footer class="footer">
-    <div class="footer-toTop"></div>
+    <div class="footer-toTop <?$APPLICATION->ShowProperty('toTopClass')?>"></div>
     <div class="footer-top">
         <div class="footer-top-col"><?
             $APPLICATION->IncludeFile(
@@ -42,16 +42,8 @@ if(ERROR_404 !== 'Y') {
                 "USE_EXT" => "Y"
             )
         );
-        ?></div><?/*
-    $APPLICATION->IncludeFile(
-        SITE_TEMPLATE_PATH . "/include/footerInfo.php",
-        array(),
-        array(
-            "NAME" => "Информация в футере",
-            "MODE" => "html"
-        )
-    );
-    */?></footer><?
+        ?></div>
+</footer><?
 }
 ?></div>
 </body>

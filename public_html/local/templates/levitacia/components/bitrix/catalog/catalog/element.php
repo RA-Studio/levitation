@@ -24,6 +24,7 @@ else
     $basketAction = (isset($arParams['DETAIL_ADD_TO_BASKET_ACTION']) ? $arParams['DETAIL_ADD_TO_BASKET_ACTION'] : array());
 }
 $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEBAR_PATH']));
+$APPLICATION->SetPageProperty('toTopClass','goodpage-footer-toTop');
 ?><div class="container">
     <div class="good" ><?
         $componentElementParams = array(

@@ -1,6 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("TITLE", "Заказы, возвраты и доставка");
+$APPLICATION->SetPageProperty("keywords", "Заказы, возвраты и доставка / _Levitacia^");
+$APPLICATION->SetPageProperty("description", "Заказы, возвраты и доставка / _Levitacia^");
+$APPLICATION->SetPageProperty("TITLE", "Заказы, возвраты и доставка / _Levitacia^");
 $APPLICATION->SetTitle("Заказы и доставка");
 ?><div class="container inner">
 	<div class="text">
