@@ -68,8 +68,8 @@ while ($arItems = $dbBasketItems->Fetch()){
             }
 
             $pathToAuthorize = $arParams['PATH_TO_AUTHORIZE'];
-            $pathToAuthorize .= (stripos($pathToAuthorize, '?') === false ? '?' : '&');
-            $pathToAuthorize .= 'login=yes&backurl='.$currentUrl;
+            //$pathToAuthorize .= (stripos($pathToAuthorize, '?') === false ? '?' : '&');
+            //$pathToAuthorize .= 'login=yes&backurl='.$currentUrl;
             ?>
 <div class="header-menu__item">
                 <a href="<?=$pathToAuthorize?>">

@@ -1,6 +1,5 @@
 (function(window){
 	'use strict';
-
 	if (window.JCCatalogElement)
 		return;
 
@@ -238,6 +237,7 @@
 	};
 
 	window.JCCatalogElement.prototype = {
+
 		getEntity: function(parent, entity, additionalFilter)
 		{
 			if (!parent || !entity)
@@ -1412,7 +1412,6 @@
 				current = images[l].querySelector('img');
 				current.setAttribute('data-title', current.getAttribute('title') || '');
 				current.removeAttribute('title');
-
 				if (images[l].getAttribute('data-id') == this.currentImg.id)
 				{
 					BX.unbind(this.currentImg.node, 'mouseover', BX.proxy(this.enableMagnifier, this));
@@ -2496,11 +2495,11 @@
 
 			if (index > -1)
 			{
+
 				if (index != this.offerNum)
 				{
 					this.isGift = false;
 				}
-
 				this.drawImages(this.offers[index].SLIDER);
 				this.checkSliderControls(this.offers[index].SLIDER_COUNT);
 
@@ -2597,10 +2596,15 @@
 
 		drawImages: function(images)
 		{
+
 			if (!this.node.imageContainer)
 				return;
-
+			if (document.documentElement.clientWidth < 768) {
+				removeSlick();
+			}
 			var i, img, entities = this.getEntities(this.node.imageContainer, 'image');
+
+
 			for (i in entities)
 			{
 				if (entities.hasOwnProperty(i) && BX.type.isDomNode(entities[i]))
@@ -2625,10 +2629,12 @@
 				}
 
 				this.node.imageContainer.appendChild(
-					BX.create('DIV', {
+					BX.create('a', {
 						attrs: {
 							'data-entity': 'image',
-							'data-id': images[i].ID
+							'data-id': images[i].ID,
+							'data-fancybox': 'product-item',
+							'href': images[i].SRC
 						},
 						props: {
 							className: 'good-gallery-item' //+ (i == 0 ? ' active' : '')
@@ -2636,6 +2642,9 @@
 						children: [img]
 					})
 				);
+			}
+			if (document.documentElement.clientWidth < 768) {
+				initSlick();
 			}
 		},
 
@@ -3462,6 +3471,7 @@
 
 		incViewedCounter: function()
 		{
+
 			if (this.currentIsSet && !this.updateViewedCount)
 			{
 				switch (this.productType)
@@ -3473,7 +3483,11 @@
 						break;
 					case 3:
 						this.viewedCounter.params.PARENT_ID = this.product.id;
-						this.viewedCounter.params.PRODUCT_ID = this.offers[this.offerNum].ID;
+						if (this.offers.length>0) {
+							this.viewedCounter.params.PRODUCT_ID = this.offers[this.offerNum].ID;
+						}else{
+							this.viewedCounter.params.PRODUCT_ID = this.product.id;
+						}
 						break;
 					default:
 						return;

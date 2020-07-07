@@ -21,15 +21,31 @@ use \Bitrix\Main\Localization\Loc;
  * @var string $buttonSizeClass
  * @var CatalogSectionComponent $component
  */
-?>
-    <a class="main-items-card" href="<?=$item['DETAIL_PAGE_URL']?>">
+
+$arSelect = Array("ID", "IBLOCK_ID","PREVIEW_PICTURE","DETAIL_PICTURE");
+$arFilter = Array("IBLOCK_ID"=>$item['IBLOCK_ID'], "ID"=>$item['ID']);
+$res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>1), $arSelect);
+$pictures = $res->GetNextElement()->GetFields();
+if (!empty($pictures['PREVIEW_PICTURE'])) {
+    $pictures['PREVIEW_PICTURE'] = CFile::GetFileArray($pictures['PREVIEW_PICTURE']);
+}
+if (!empty($pictures['DETAIL_PICTURE'])) {
+    $pictures['DETAIL_PICTURE'] = CFile::GetFileArray($pictures['DETAIL_PICTURE']);
+}
+?><a class="main-items-card" href="<?=$item['DETAIL_PAGE_URL']?>">
         <div class="main-items-card-img">
             <div class="main-items-card-img-top">
-                <img class="lazy" src="<?=SITE_TEMPLATE_PATH?>/assets/images/load.gif" data-src="<?=$item['PREVIEW_PICTURE']['SRC']?>" alt="<?=$item['PREVIEW_PICTURE']['ALT']?>">
+                <img class="lazy" src="<?=SITE_TEMPLATE_PATH?>/assets/images/load.gif" data-src="<?=$pictures['PREVIEW_PICTURE']['SRC']?$pictures['PREVIEW_PICTURE']['SRC']:$item['PREVIEW_PICTURE']['SRC']?>" alt="<?=$item['PREVIEW_PICTURE']['ALT']?>">
             </div>
-            <div class="main-items-card-img-bot">
-                <img class="lazy" src="<?=SITE_TEMPLATE_PATH?>/assets/images/load.gif" data-src="<?=$item['DETAIL_PICTURE']['SRC']?$item['DETAIL_PICTURE']['SRC']:$item['PREVIEW_PICTURE']['SRC']?>" alt="<?=$item['DETAIL_PICTURE']['ALT']?>">
-            </div>
+            <?if (!empty($pictures['DETAIL_PICTURE']['SRC']) || !empty($item['DETAIL_PICTURE']['SRC']) ){?>
+                <div class="main-items-card-img-bot">
+                    <img class="lazy" src="<?=SITE_TEMPLATE_PATH?>/assets/images/load.gif" data-src="<?=$pictures['DETAIL_PICTURE']['SRC']?$pictures['DETAIL_PICTURE']['SRC']:$item['DETAIL_PICTURE']['SRC']?>" alt="<?=$item['DETAIL_PICTURE']['ALT']?>">
+                </div>
+            <?}else{?>
+                <div class="main-items-card-img-bot">
+                    <img class="lazy" src="<?=SITE_TEMPLATE_PATH?>/assets/images/load.gif" data-src="<?=$pictures['PREVIEW_PICTURE']['SRC']?$pictures['PREVIEW_PICTURE']['SRC']:$item['PREVIEW_PICTURE']['SRC']?>" alt="<?=$item['PREVIEW_PICTURE']['ALT']?>">
+                </div>
+            <?}?>
         </div>
             <span class="product-item-image-wrapper" style="display: none" data-entity="image-wrapper">
 		<span class="product-item-image-slider-slide-container slide" id="<?=$itemIds['PICT_SLIDER']?>"
@@ -122,10 +138,6 @@ use \Bitrix\Main\Localization\Loc;
         <div class="main-items-card-info">
             <div class="main-items-card-info__title">
                 <?=$item['NAME'];?>
-                <?/*
-                $trimmedStr = htmlspecialcharsBack($item['NAME']);
-                echo substr($trimmedStr, 0, 18); // обрезаем строку до 18 символов
-                */?>
             </div>
             <!--<div class="main-items-card-info__status">
                 Available Now
@@ -143,7 +155,6 @@ use \Bitrix\Main\Localization\Loc;
                     }
                     ?>
                     <span class="product-item-price-current" id="<?=$itemIds['PRICE']?>">
-                        <? echo '<pre style="display:none">',print_r($price,1),'</pre>'; ?>
 							<?
                             if (!empty($price))
                             {

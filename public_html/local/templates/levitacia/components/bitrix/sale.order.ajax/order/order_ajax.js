@@ -227,6 +227,15 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 								break;
 						}
 						BX.cleanNode(this.savedFilesBlockNode);
+						
+						try {
+    						IMask(document.querySelector('[name="ORDER_PROP_3"]'), {
+                                mask: '+{7} (000) 000-00-00'
+                            });
+						} catch (e) {
+						    console.log(e);
+						}
+
 						this.endLoader();
 					}, this),
 					onfailure: BX.delegate(function(){

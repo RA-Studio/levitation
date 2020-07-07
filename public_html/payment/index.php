@@ -13,9 +13,9 @@ $APPLICATION->SetTitle("Оплата");
          К оплате принимаются карты VISA, MasterCard, МИР.</br></br>
       </p>
       <div class="payment-imgbox">
-        <img alt="visa" src="https://internation.co/upload/iblock/svg_sposobi_oplati/visa.svg">
-        <img alt="mastercard" src="https://internation.co/upload/iblock/svg_sposobi_oplati/mastercard.svg">
-        <img alt="mir" src="https://internation.co/upload/iblock/svg_sposobi_oplati/mir.svg">
+		  <img alt="visa" src="https://levitacia.co/local/templates/levitacia/assets/images/visa.svg">
+        <img alt="mastercard" src="https://levitacia.co/local/templates/levitacia/assets/images/mastercard.svg">
+        <img alt="mir" src="https://levitacia.co/local/templates/levitacia/assets/images/mir.svg">
       </div>
       <p>Услуга оплаты через интернет осуществляется в соответствии с Правилами международных платежных систем Visa, MasterCard и Платежной системы МИР на принципах соблюдения конфиденциальности и безопасности совершения платежа, для чего используются самые современные методы проверки, шифрования и передачи данных по закрытым каналам связи. Ввод данных банковской карты осуществляется на защищенной платежной странице АО «АЛЬФА-БАНК».
       На странице для ввода данных банковской карты потребуется ввести данные банковской карты: номер карты, имя владельца карты, срок действия карты, трёхзначный код безопасности (CVV2 для VISA, CVC2 для MasterCard, Код Дополнительной Идентификации для МИР). Все необходимые данные пропечатаны на самой карте. Трёхзначный код безопасности — это три цифры, находящиеся на обратной стороне карты.</br>

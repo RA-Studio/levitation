@@ -28,13 +28,24 @@ if (CModule::IncludeModule("sale"))
 	{
 		
 		$service = new PaySystem\Service($item);
+
 		if ($service instanceof PaySystem\Service)
 		{
-			$result = $service->processRequest($request);
-			// echo "<pre>";
-			// print_r($result);
-
-		}
+		    ?><div class="container">
+            <div class="basket-empty alfa-success" style="margin-top:0">
+                <h1 class="title"><?=$APPLICATION->ShowTitle(false)?></h1>
+                <div class="basket-empty__title"><?=$result = $service->processRequest($request);?></div>
+                <div class="text__content">Подробная информация по Вашему заказу на почте и в <a href="/personal/" class="" style="display: inline-block;text-decoration: underline;">личном кабинета</a> интернет-магазина.</div>
+            </div>
+        </div>
+            <script>
+                $(document).ready(function () {
+                    setTimeout(function () {
+                        window.location.href = "/personal/";
+                    },3000);
+                });
+            </script>
+		<?}
 	}
 	else
 	{

@@ -7,7 +7,7 @@ foreach($arResult as $arItem):?>
 		<?=str_repeat("</div>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
 	<?endif?>
 	<?if ($arItem["IS_PARENT"]):?>
-        <div class="header-menu__item header-menu__parent">
+        <div class="header-menu__item <?/*header-menu__parent*/?>">
         <?=$arItem["TEXT"]?>
         </div>
             <div class="header-menu__content">

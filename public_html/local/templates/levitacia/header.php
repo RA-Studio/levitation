@@ -24,21 +24,42 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/assets/scripts/slick/slick-theme.css');
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/assets/styles/app.min.css');
     ?><!--JS-->
+    
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>
     <?
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/jquery.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/fancybox/jquery.fancybox.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/slick/slick.min.js");
+    $APPLICATION->AddHeadScript("/local/components/slam/easyform/templates/uniform/uniform.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/main.js");
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/ecommerceFunc.js");
+    if(in_array($_SERVER['REMOTE_ADDR'],['185.97.201.199', '83.102.147.81', '78.107.205.212', '5.18.184.71'])){
+        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/authSms.js");
+    }
     ?><!--ICONS-->
+    <?
+    $APPLICATION->IncludeFile(
+        SITE_TEMPLATE_PATH."/include/counters.php",
+        array(),
+        array(
+            "NAME"=>"counters",
+            "MODE" => "html"
+        )
+    );
+    ?>
     <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/apple-touch-icon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/apple-touch-icon.png">
+
+    
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M22FJDX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
 <div class="wrapper">
     <div class="overlay"></div>
-
     <?
     if(!defined('ERROR_404') && ERROR_404 !=='Y' ) { // если не на 404
     ?>
@@ -114,7 +135,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                   "PATH_TO_ORDER" => SITE_DIR."basket/checkout/",
                   "PATH_TO_PERSONAL" => SITE_DIR."personal/",
                   "PATH_TO_PROFILE" => SITE_DIR."personal/",
-                  "PATH_TO_REGISTER" => SITE_DIR."auth/",
+                  "PATH_TO_REGISTER" => SITE_DIR."personal/login/",
                   "POSITION_FIXED" => "N",
                   "SHOW_AUTHOR" => "Y",
                   "SHOW_EMPTY_VALUES" => "Y",
@@ -169,30 +190,11 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                         "HIDE_ICONS" => "N"
                 )
             );?>
-            <?
-            $APPLICATION->IncludeComponent(
-                    "bitrix:menu",
-                    "top",
-                    array(
-                            "ALLOW_MULTI_SELECT" => "N",
-                            "CHILD_MENU_TYPE" => "left",
-                            "COMPONENT_TEMPLATE" => "top",
-                            "DELAY" => "N",
-                            "MAX_LEVEL" => "1",
-                            "MENU_CACHE_GET_VARS" => array(
-                            ),
-                            "MENU_CACHE_TIME" => "3600",
-                            "MENU_CACHE_TYPE" => "N",
-                            "MENU_CACHE_USE_GROUPS" => "Y",
-                            "ROOT_MENU_TYPE" => "top",
-                            "USE_EXT" => "N"
-                    ),
-                    false
-            );
-            ?>
+
+
             <?$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"collection", 
+	"bitrix:menu",
+	"collection",
 	array(
 		"ALLOW_MULTI_SELECT" => "N",
 		"CHILD_MENU_TYPE" => "left",
@@ -208,7 +210,27 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 		"USE_EXT" => "Y"
 	),
 	false
-);
+); ?>
+            <?
+            $APPLICATION->IncludeComponent(
+                "bitrix:menu",
+                "top",
+                array(
+                    "ALLOW_MULTI_SELECT" => "N",
+                    "CHILD_MENU_TYPE" => "left",
+                    "COMPONENT_TEMPLATE" => "top",
+                    "DELAY" => "N",
+                    "MAX_LEVEL" => "1",
+                    "MENU_CACHE_GET_VARS" => array(
+                    ),
+                    "MENU_CACHE_TIME" => "3600",
+                    "MENU_CACHE_TYPE" => "N",
+                    "MENU_CACHE_USE_GROUPS" => "Y",
+                    "ROOT_MENU_TYPE" => "top",
+                    "USE_EXT" => "N"
+                ),
+                false
+            );
             ?>
             </div><?
         }
@@ -243,5 +265,54 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         <?
     }
     ?>
+
+    <?/**/?>
+    <?global $USER;
+    if($USER->IsAdmin()){?>
+    <?}else{?>
+        <?$APPLICATION->IncludeComponent("bitrix:sender.subscribe", "subscribe", Array(
+            "AJAX_MODE" => "Y",	// Включить режим AJAX
+            "AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+            "AJAX_OPTION_HISTORY" => "Y",	// Включить эмуляцию навигации браузера
+            "AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+            "AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+            "CACHE_TIME" => "3600",	// Время кеширования (сек.)
+            "CACHE_TYPE" => "A",	// Тип кеширования
+            "CONFIRMATION" => "N",	// Запрашивать подтверждение подписки по email
+            "HIDE_MAILINGS" => "Y",	// Скрыть список рассылок, и подписывать на все
+            "SET_TITLE" => "N",	// Устанавливать заголовок страницы
+            "SHOW_HIDDEN" => "Y",	// Показать скрытые рассылки для подписки
+            "USER_CONSENT" => "N",	// Запрашивать согласие
+            "USER_CONSENT_ID" => "0",	// Соглашение
+            "USER_CONSENT_IS_CHECKED" => "Y",	// Галка по умолчанию проставлена
+            "USER_CONSENT_IS_LOADED" => "N",	// Загружать текст сразу
+            "USE_PERSONALIZATION" => "Y",	// Определять подписку текущего пользователя
+        ),
+            false
+        );?>
+        <?if($_SESSION['SHOW_SUBSCRIBE']!='N'){?>
+            <?$APPLICATION->IncludeComponent("bitrix:sender.subscribe", "subscribeMobile", Array(
+                "AJAX_MODE" => "Y",	// Включить режим AJAX
+                "AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+                "AJAX_OPTION_HISTORY" => "Y",	// Включить эмуляцию навигации браузера
+                "AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+                "AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+                "CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                "CACHE_TYPE" => "A",	// Тип кеширования
+                "CONFIRMATION" => "N",	// Запрашивать подтверждение подписки по email
+                "HIDE_MAILINGS" => "Y",	// Скрыть список рассылок, и подписывать на все
+                "SET_TITLE" => "N",	// Устанавливать заголовок страницы
+                "SHOW_HIDDEN" => "Y",	// Показать скрытые рассылки для подписки
+                "USER_CONSENT" => "N",	// Запрашивать согласие
+                "USER_CONSENT_ID" => "0",	// Соглашение
+                "USER_CONSENT_IS_CHECKED" => "Y",	// Галка по умолчанию проставлена
+                "USER_CONSENT_IS_LOADED" => "N",	// Загружать текст сразу
+                "USE_PERSONALIZATION" => "Y",	// Определять подписку текущего пользователя
+            ),
+                false
+            );?>
+        <?}?>
+    <?}?>
     <div class="content">
+
 						

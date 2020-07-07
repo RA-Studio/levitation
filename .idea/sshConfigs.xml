@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="internxl.beget.tech" id="217c27fb-cc14-4c5b-9c2d-b75e2ee82976" port="22" customName="Levitation_Dev" nameFormat="CUSTOM" username="internxl_admin" />
+      <sshConfig authType="PASSWORD" host="internxl.beget.tech" id="fc39a9bd-eaf8-4b93-8e8e-64bede38f1ad" port="22" customName="Levitation_Dev" nameFormat="CUSTOM" username="internxl_admin" />
+    </configs>
+  </component>
+</project>

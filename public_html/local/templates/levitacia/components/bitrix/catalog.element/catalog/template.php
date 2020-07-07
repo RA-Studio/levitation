@@ -159,8 +159,6 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 		$labelPositionClass .= isset($positionClassMap[$pos]) ? ' '.$positionClassMap[$pos] : '';
 	}
 }
-
-
 function getColor ( $id , $filter = []){
     if ($id==0) return false;
     $hlblock = HL\HighloadBlockTable::getById($id)->fetch();
@@ -170,23 +168,28 @@ function getColor ( $id , $filter = []){
     $row = $res->fetch();
     return $row;
 }
-
-
-
-
-
 ?><div id="<?=$itemIds['ID']?>">
+
 <div class="good-gallery" id="<?=$itemIds['BIG_SLIDER_ID']?>" id="<?=$itemIds['ID']?>">
     <div class="good-gallery__close"></div>
-    <div data-entity="images-container"><?
+    <div data-entity="images-container">
+        <?if($arResult['CATALOG_AVAILABLE'] == 'N'){?>
+            <div class="good-gallery-item"  data-id="<?=$arResult['PREVIEW_PICTURE']['ID']?>">
+                <img src="<?=$arResult['PREVIEW_PICTURE']['SRC']?>" alt="<?=$arResult['PREVIEW_PICTURE']['ALT']?>" title="<?=$arResult['PREVIEW_PICTURE']['TITLE']?>" itemprop="image">
+            </div>
+            <div class="good-gallery-item"  data-id="<?=$arResult['DETAIL_PICTURE']['ID']?>">
+                <img src="<?=$arResult['DETAIL_PICTURE']['SRC']?>" alt="<?=$arResult['DETAIL_PICTURE']['ALT']?>" title="<?=$arResult['DETAIL_PICTURE']['TITLE']?>">
+            </div>
+        <?}?>
+        <?
         if (!empty($actualItem['MORE_PHOTO']))
         {
-            foreach ($actualItem['MORE_PHOTO'] as $key => $photo)
+            /*foreach ($actualItem['MORE_PHOTO'] as $key => $photo)
             {
                 ?><div class="good-gallery-item" style="display: none"  data-id="<?=$photo['ID']?>">
                     <img src="<?=$photo['SRC']?>" alt="<?=$alt?>" title="<?=$title?>"<?=($key == 0 ? ' itemprop="image"' : '')?>>
                 </div><?
-            }
+            }*/
         }
     ?></div>
 </div>
@@ -305,7 +308,7 @@ if ($haveOffers && !empty($arResult['OFFERS_PROP']))
 }?><div class="good-content__add" id="<?=$itemIds['BASKET_ACTIONS_ID']?>" style="display: <?=($actualItem['CAN_BUY'] ? '' : 'none')?>;"><?
             if ($showAddBtn)
             {
-                ?><a class="<?=$showButtonClassName?>" id="<?=$itemIds['ADD_BASKET_LINK']?>"
+                ?><a class="<?=$showButtonClassName?>" onclick="eComAddToBasketE(this)" id="<?=$itemIds['ADD_BASKET_LINK']?>"
                        href="javascript:void(0);">
                         <span><?=$arParams['MESS_BTN_ADD_TO_BASKET']?></span>
                 </a><?
@@ -322,11 +325,12 @@ if ($haveOffers && !empty($arResult['OFFERS_PROP']))
         {
                 $APPLICATION->IncludeComponent(
                     'bitrix:catalog.product.subscribe',
-                    '',
+                    'catalog',
                     array(
                         'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
                         'PRODUCT_ID' => $arResult['ID'],
                         'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
+                        'CACHE_TYPE' => 'N',
                         'BUTTON_CLASS' => 'btn btn-default product-item-detail-buy-button',
                         'DEFAULT_DISPLAY' => !$actualItem['CAN_BUY'],
                         'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
@@ -334,12 +338,15 @@ if ($haveOffers && !empty($arResult['OFFERS_PROP']))
                     $component,
                     array('HIDE_ICONS' => 'Y')
                 );
-        }
-        ?><a class="good-content__add" id="<?=$itemIds['NOT_AVAILABLE_MESS']?>"
+        }else{
+        ?>
+
+        <a class="good-content__add" id="<?=$itemIds['NOT_AVAILABLE_MESS']?>"
                    href="javascript:void(0)"
                    rel="nofollow" style="display: <?=(!$actualItem['CAN_BUY'] ? '' : 'none')?>;">
                     <?=$arParams['MESS_NOT_AVAILABLE']?>
                 </a>
+        <?}?>
         <a class="good-content__guide" href="#">Таблица размеров</a>
         <meta itemprop="name" content="<?=$name?>" />
         <meta itemprop="category" content="<?=$arResult['CATEGORY_PATH']?>" />

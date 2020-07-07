@@ -11,8 +11,10 @@
 			<b><?= GetMessage("SALE_CANCEL_ORDER3") ?></b><br /><br />
 			<?= GetMessage("SALE_CANCEL_ORDER4") ?>:<br />
 			<textarea name="REASON_CANCELED"></textarea><br /><br />
-			<input type="submit" name="action" value="<?=GetMessage("SALE_CANCEL_ORDER_BTN") ?>">
-            <div onclick="$.fancybox.close()"><?=GetMessage("SALE_RECORDS_LIST")?></div>
+			<div class="order_cancel-bot">
+				<input type="submit" class="good-content__add" name="action" value="<?=GetMessage("SALE_CANCEL_ORDER_BTN") ?>">
+				<div class="order_cancel-bot__back" onclick="$.fancybox.close()"><?=GetMessage("SALE_RECORDS_LIST")?></div>
+			</div>
 		</form>
 	<?else:?>
 		<?=ShowError($arResult["ERROR_MESSAGE"]);?>

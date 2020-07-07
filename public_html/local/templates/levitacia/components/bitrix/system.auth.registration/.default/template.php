@@ -14,7 +14,10 @@
  * @param CBitrixComponentTemplate $this
  */
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-
+if($arResult["SHOW_SMS_FIELD"] == true)
+{
+    CJSCore::Init('phone_auth');
+}
 ShowMessage($arParams["~AUTH_RESULT"]);
 ?>
 <noindex>
@@ -24,7 +27,8 @@ ShowMessage($arParams["~AUTH_RESULT"]);
         <?}?>
         <?if($arResult["USE_EMAIL_CONFIRMATION"] === "Y" && is_array($arParams["AUTH_RESULT"]) &&  $arParams["AUTH_RESULT"]["TYPE"] === "OK"){?>
             <?echo GetMessage("AUTH_EMAIL_SENT")?></div>
-        <?}else{?>
+        <?}
+        else{?>
         <?if($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):?>
             <?echo GetMessage("AUTH_EMAIL_WILL_BE_SENT")?></div>
         <?endif?>
@@ -69,7 +73,15 @@ ShowMessage($arParams["~AUTH_RESULT"]);
             <span></span>
             <span>Я прочитал политику конфиденциальности</span>
         </label>
+        <?if (!empty($GLOBALS['REGISTER_ERROR'])){?>
+            <div>
+                <?ShowError($GLOBALS['REGISTER_ERROR'])?>
+            </div>
+        <?}?>
         <input class="lk-tab__submit" type="submit" name="Register" value="Создать" />
     </form>
+
 </noindex>
 <?}?>
+
+

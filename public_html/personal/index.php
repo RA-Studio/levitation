@@ -1,9 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("TITLE", "Мой профиль / _Levitacia^");
-$APPLICATION->SetPageProperty("keywords", "Мой профиль / _Levitacia^");
-$APPLICATION->SetPageProperty("description", "Мой профиль / _Levitacia^");
-$APPLICATION->SetTitle("Мой профиль / _Levitacia^");
+$APPLICATION->SetPageProperty("TITLE", "Мой профиль");
+$APPLICATION->SetPageProperty("keywords", "Мой профиль");
+$APPLICATION->SetPageProperty("description", "Мой профиль");
+$APPLICATION->SetTitle("Мой профиль");
 global $USER;
 if (!$USER->IsAuthorized()) {
     LocalRedirect('/personal/login/');
@@ -18,16 +18,18 @@ if (!$USER->IsAuthorized()) {
 			</div><?
             $_REQUEST['show_all']='Y';
             $APPLICATION->IncludeComponent(
-	"bitrix:sale.personal.order.list",
-	"orderList",
+	"bitrix:sale.personal.order.list", 
+	"orderList", 
 	array(
 		"ACTIVE_DATE_FORMAT" => $arParams["ACTIVE_DATE_FORMAT"],
 		"ALLOW_INNER" => "N",
 		"CACHE_GROUPS" => "N",
 		"CACHE_TIME" => $arParams["CACHE_TIME"],
-		"CACHE_TYPE" => "A",
+		"CACHE_TYPE" => "N",
 		"DEFAULT_SORT" => "STATUS",
 		"HISTORIC_STATUSES" => array(
+			0 => "C",
+			1 => "F",
 		),
 		"ID" => $arResult["VARIABLES"]["ID"],
 		"NAV_TEMPLATE" => "pagination",
@@ -41,6 +43,7 @@ if (!$USER->IsAuthorized()) {
 		"PATH_TO_PAYMENT" => $arParams["PATH_TO_PAYMENT"],
 		"REFRESH_PRICES" => "N",
 		"RESTRICT_CHANGE_PAYSYSTEM" => array(
+			0 => "P",
 		),
 		"SAVE_IN_SESSION" => "N",
 		"SET_TITLE" => "N",
@@ -53,7 +56,9 @@ if (!$USER->IsAuthorized()) {
 		"COMPOSITE_FRAME_MODE" => "A",
 		"COMPOSITE_FRAME_TYPE" => "AUTO",
 		"STATUS_COLOR_S" => "gray",
-		"STATUS_COLOR_T" => "gray"
+		"STATUS_COLOR_T" => "gray",
+		"STATUS_COLOR_C" => "gray",
+		"STATUS_COLOR_P" => "yellow"
 	),
 	$component
 );?><?$APPLICATION->IncludeComponent(
@@ -70,7 +75,22 @@ if (!$USER->IsAuthorized()) {
 		"USER_PROPERTY_NAME" => ""
 	),
 $component
-);?><?$APPLICATION->IncludeComponent(
+);?>
+            <?if ($_GET['CANCEL']=='Y'){?>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:sale.personal.order.cancel",
+                    "orderCancel",
+                    array(
+                        "PATH_TO_LIST" => "/personal/",
+                        "PATH_TO_DETAIL" => "order_detail.php?ID=#ID#",
+                        "ID" => $ID,
+                        "SET_TITLE" => "N",
+                        "COMPONENT_TEMPLATE" => "orderCancel"
+                    ),
+                    false
+                );?>
+    <?}?>
+            <?$APPLICATION->IncludeComponent(
                 "bitrix:sale.personal.profile.list",
                 "profile",
                 array(

@@ -158,7 +158,7 @@
             "SECTION_ID" => "",
             "FILTER_NAME" => $arParams["FILTER_NAME"],
             "PRICE_CODE" => $arParams["~PRICE_CODE"],
-            "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+            "CACHE_TYPE" => "N",//$arParams["CACHE_TYPE"],
             "CACHE_TIME" => $arParams["CACHE_TIME"],
             "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
             "SAVE_IN_SESSION" => "N",

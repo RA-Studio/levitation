@@ -1,9 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("keywords", "Моя корзина  / _Levitacia^");
-$APPLICATION->SetPageProperty("description", "Моя корзина  / _Levitacia^");
-$APPLICATION->SetPageProperty("TITLE", "Моя корзина  / _Levitacia^");
-$APPLICATION->SetTitle("Моя корзина  / _Levitacia^");
+$APPLICATION->SetPageProperty("keywords", "Моя корзина");
+$APPLICATION->SetPageProperty("description", "Моя корзина");
+$APPLICATION->SetPageProperty("TITLE", "Моя корзина");
+$APPLICATION->SetTitle("Моя корзина");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:sale.basket.basket", 
 	"basket", 

@@ -165,6 +165,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 }
 ?>
 <div class="main-items-wrap">
+    <div data-entity="<?=$containerName?>">
     <?
     if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS']))
     {
@@ -178,7 +179,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
             $this->AddDeleteAction($uniqueId, $item['DELETE_LINK'], $elementDelete, $elementDeleteParams);
         }
         ?>
-    <div class="main-items" data-entity="<?=$containerName?>">
+    <div class="main-items" >
         <!-- items-container -->
         <?
         foreach ($arResult['ITEM_ROWS'] as $rowData)
@@ -189,8 +190,6 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
                 <?
                 foreach ($rowItems as $item)
                 {
-                    ?>
-                    <?
                     $APPLICATION->IncludeComponent(
                         'bitrix:catalog.item',
                         'catalog',
@@ -234,30 +233,33 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
             array('HIDE_ICONS' => 'Y')
         );
     }
-    ?></div><?
-if ($showLazyLoad)
-{
-	?><div style="display: none" class="row bx-<?=$arParams['TEMPLATE_THEME']?>">
+    if ($showBottomPager)
+
+    {
+        ?><div data-pagination-num="<?=$navParams['NavNum']?>">
+        <!-- pagination-container -->
+        <?=$arResult['NAV_STRING']?>
+        <!-- pagination-container -->
+        </div><?
+    }
+    ?>
+    </div>
+    <?
+    if ($showLazyLoad) {
+        ?><div style="display: none" class="row bx-<?=$arParams['TEMPLATE_THEME']?>">
 		<div class="btn btn-default btn-lg center-block" style="margin: 15px;"
 			data-use="show-more-<?=$navParams['NavNum']?>">
 			<?=$arParams['MESS_BTN_LAZY_LOAD']?>
 		</div>
 	</div><?
 }
-
-if ($showBottomPager)
-{
-	?><div data-pagination-num="<?=$navParams['NavNum']?>">
-		<!-- pagination-container -->
-		<?=$arResult['NAV_STRING']?>
-		<!-- pagination-container -->
-	</div><?
-}
-
 $signer = new \Bitrix\Main\Security\Sign\Signer;
 $signedTemplate = $signer->sign($templateName, 'catalog.section');
 $signedParams = $signer->sign(base64_encode(serialize($arResult['ORIGINAL_PARAMETERS'])), 'catalog.section');
-?><script>
+?>
+</div>
+
+<script>
 	BX.message({
 		BTN_MESSAGE_BASKET_REDIRECT: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_BASKET_REDIRECT')?>',
 		BASKET_URL: '<?=$arParams['BASKET_URL']?>',

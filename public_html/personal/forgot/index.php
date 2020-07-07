@@ -11,21 +11,25 @@ $APPLICATION->SetTitle("Восстановление пароля / _Levitacia^"
             "bitrix:system.auth.forgotpasswd",
             "",
             Array()
-        );?><?
-        $APPLICATION->IncludeComponent(
-            "bitrix:system.auth.changepasswd",
-            ".default",
-            Array(
-                "AUTH" => "Y",
-                "COMPONENT_TEMPLATE" => ".default",
-                "REQUIRED_FIELDS" => array(),
-                "SET_TITLE" => "N",
-                "SHOW_FIELDS" => array(),
-                "SUCCESS_PAGE" => SITE_DIR."personal/",
-                "USER_PROPERTY" => array(),
-                "USER_PROPERTY_NAME" => "",
-                "USE_BACKURL" => "Y"
-            )
         );?>
+
+    <?
+    $APPLICATION->IncludeComponent(
+        "bitrix:system.auth.changepasswd",
+        ".default",
+        Array(
+            "AUTH" => "Y",
+            "COMPONENT_TEMPLATE" => ".default",
+            "REQUIRED_FIELDS" => array(),
+            "SET_TITLE" => "N",
+            "SHOW_FIELDS" => array(),
+            "SUCCESS_PAGE" => SITE_DIR."personal/",
+            "USER_PROPERTY" => array(),
+            "USER_PROPERTY_NAME" => "",
+            "USE_BACKURL" => "Y"
+        )
+    );?>
+
+
     </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

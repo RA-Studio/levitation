@@ -1,6 +1,5 @@
 User-Agent: *
 Host: www.levitacia.rnet20fk.beget.tech
-Disallow: *
 Disallow: /bitrix/
 Disallow: /*show_include_exec_time=
 Disallow: /*show_page_exec_time=

@@ -1,244 +1,178 @@
 <?
+//include $_SERVER["DOCUMENT_ROOT"]."/local/php_interface/sendSMSLib/sendSmsFunc.php";
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Title");
-?><?$APPLICATION->IncludeComponent(
-	"bitrix:catalog", 
-	".default", 
-	array(
-		"ACTION_VARIABLE" => "action",
-		"ADD_ELEMENT_CHAIN" => "N",
-		"ADD_PROPERTIES_TO_BASKET" => "Y",
-		"ADD_SECTIONS_CHAIN" => "Y",
-		"AJAX_MODE" => "N",
+//  global   $USER ;
+// $USER ->Authorize( 93 );
+?>
+<?
+
+//send_sms('79992045625',"Привет");
+?>
+<div class="container inner">
+	 <?/*
+<?$APPLICATION->IncludeComponent("bitrix:sender.subscribe", "subscribeMobile", Array(
+	"AJAX_MODE" => "Y",	// Включить режим AJAX
+		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+		"AJAX_OPTION_HISTORY" => "Y",	// Включить эмуляцию навигации браузера
+		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+		"CACHE_TIME" => "3600",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CONFIRMATION" => "N",	// Запрашивать подтверждение подписки по email
+		"HIDE_MAILINGS" => "Y",	// Скрыть список рассылок, и подписывать на все
+		"SET_TITLE" => "N",	// Устанавливать заголовок страницы
+		"SHOW_HIDDEN" => "Y",	// Показать скрытые рассылки для подписки
+		"USER_CONSENT" => "N",	// Запрашивать согласие
+		"USER_CONSENT_ID" => "0",	// Соглашение
+		"USER_CONSENT_IS_CHECKED" => "Y",	// Галка по умолчанию проставлена
+		"USER_CONSENT_IS_LOADED" => "N",	// Загружать текст сразу
+		"USE_PERSONALIZATION" => "Y",	// Определять подписку текущего пользователя
+	),
+	false
+);?>
+*/?> <?/*
+<?//$_SESSION['']
+global $USER;
+$aSubscrRub = array();
+if(CModule::IncludeModule('subscribe')){
+  $rs = CSubscription::GetList(array("ID"=>"DESC"), array("USER"=>$USER->GetID()));
+  if($ar = $rs->Fetch()) {
+    $aSubscrRub = CSubscription::GetRubricArray($USER->GetID() );
+  }
+}
+print_r($aSubscrRub);
+
+?> <?
+if ($USER->IsAuthorized()){?> <?}?><br>
+ <br>
+ <br>
+	 <?$APPLICATION->IncludeComponent(
+	"bitrix:subscribe.form",
+	".default",
+	Array(
+		"CACHE_TIME" => "3600",
+		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => ".default",
+		"PAGE" => "",
+		"SHOW_HIDDEN" => "Y",
+		"USE_PERSONALIZATION" => "Y"
+	)
+);?><br>
+ <br>
+ <br>
+	 <?$APPLICATION->IncludeComponent(
+	"bitrix:subscribe.edit",
+	".default",
+	Array(
+		"AJAX_MODE" => "Y",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"AJAX_OPTION_HISTORY" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
-		"BASKET_URL" => "/personal/basket.php",
-		"BIG_DATA_RCM_TYPE" => "personal",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
+		"ALLOW_ANONYMOUS" => "Y",
+		"CACHE_TIME" => "3600",
 		"CACHE_TYPE" => "A",
-		"COMMON_ADD_TO_BASKET_ACTION" => "ADD",
-		"COMMON_SHOW_CLOSE_POPUP" => "N",
-		"COMPATIBLE_MODE" => "Y",
+		"COMPONENT_TEMPLATE" => ".default",
+		"SET_TITLE" => "N",
+		"SHOW_AUTH_LINKS" => "N",
+		"SHOW_HIDDEN" => "Y"
+	)
+);?><br>
+ <br>
+ <br>
+<?
+            $_REQUEST['show_all']='Y';
+            $APPLICATION->IncludeComponent(
+	"bitrix:sale.personal.order.list", 
+	".default", 
+	array(
+		"ACTIVE_DATE_FORMAT" => $arParams["ACTIVE_DATE_FORMAT"],
+		"ALLOW_INNER" => "N",
+		"CACHE_GROUPS" => "N",
+		"CACHE_TIME" => $arParams["CACHE_TIME"],
+		"CACHE_TYPE" => "A",
+		"DEFAULT_SORT" => "STATUS",
+		"HISTORIC_STATUSES" => array(
+			0 => "C",
+			1 => "F",
+		),
+		"ID" => $arResult["VARIABLES"]["ID"],
+		"NAV_TEMPLATE" => "pagination",
+		"ONLY_INNER_FULL" => "N",
+		"ORDERS_PER_PAGE" => $arParams["ORDERS_PER_PAGE"],
+		"PATH_TO_BASKET" => $arParams["PATH_TO_BASKET"],
+		"PATH_TO_CANCEL" => $arResult["PATH_TO_ORDER_CANCEL"],
+		"PATH_TO_CATALOG" => $arParams["PATH_TO_CATALOG"],
+		"PATH_TO_COPY" => $arResult["PATH_TO_ORDER_COPY"],
+		"PATH_TO_DETAIL" => $arResult["PATH_TO_ORDER_DETAIL"],
+		"PATH_TO_PAYMENT" => $arParams["PATH_TO_PAYMENT"],
+		"REFRESH_PRICES" => "N",
+		"RESTRICT_CHANGE_PAYSYSTEM" => array(
+			0 => "P",
+		),
+		"SAVE_IN_SESSION" => "N",
+		"SET_TITLE" => "N",
+		"COMPONENT_TEMPLATE" => ".default",
+		"DISALLOW_CANCEL" => "N",
+		"STATUS_COLOR_F" => "gray",
+		"STATUS_COLOR_N" => "green",
+		"STATUS_COLOR_OP" => "gray",
+		"STATUS_COLOR_PSEUDO_CANCELLED" => "red",
 		"COMPOSITE_FRAME_MODE" => "A",
 		"COMPOSITE_FRAME_TYPE" => "AUTO",
-		"CONVERT_CURRENCY" => "N",
-		"DETAIL_ADD_DETAIL_TO_SLIDER" => "N",
-		"DETAIL_ADD_TO_BASKET_ACTION" => array(
-			0 => "BUY",
-		),
-		"DETAIL_BACKGROUND_IMAGE" => "-",
-		"DETAIL_BRAND_USE" => "N",
-		"DETAIL_BROWSER_TITLE" => "-",
-		"DETAIL_CHECK_SECTION_ID_VARIABLE" => "N",
-		"DETAIL_DETAIL_PICTURE_MODE" => array(
-			0 => "POPUP",
-			1 => "MAGNIFIER",
-		),
-		"DETAIL_DISPLAY_NAME" => "Y",
-		"DETAIL_DISPLAY_PREVIEW_TEXT_MODE" => "E",
-		"DETAIL_IMAGE_RESOLUTION" => "16by9",
-		"DETAIL_META_DESCRIPTION" => "-",
-		"DETAIL_META_KEYWORDS" => "-",
-		"DETAIL_PRODUCT_INFO_BLOCK_ORDER" => "sku,props",
-		"DETAIL_PRODUCT_PAY_BLOCK_ORDER" => "rating,price,priceRanges,quantityLimit,quantity,buttons",
-		"DETAIL_SET_CANONICAL_URL" => "N",
-		"DETAIL_SET_VIEWED_IN_COMPONENT" => "N",
-		"DETAIL_SHOW_POPULAR" => "Y",
-		"DETAIL_SHOW_SLIDER" => "N",
-		"DETAIL_SHOW_VIEWED" => "Y",
-		"DETAIL_STRICT_SECTION_CHECK" => "N",
-		"DETAIL_USE_COMMENTS" => "N",
-		"DETAIL_USE_VOTE_RATING" => "N",
-		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
-		"DISPLAY_BOTTOM_PAGER" => "Y",
-		"DISPLAY_TOP_PAGER" => "N",
-		"ELEMENT_SORT_FIELD" => "sort",
-		"ELEMENT_SORT_FIELD2" => "id",
-		"ELEMENT_SORT_ORDER" => "asc",
-		"ELEMENT_SORT_ORDER2" => "desc",
-		"FILTER_HIDE_ON_MOBILE" => "N",
-		"FILTER_VIEW_MODE" => "VERTICAL",
-		"GIFTS_DETAIL_BLOCK_TITLE" => "Выберите один из подарков",
-		"GIFTS_DETAIL_HIDE_BLOCK_TITLE" => "N",
-		"GIFTS_DETAIL_PAGE_ELEMENT_COUNT" => "4",
-		"GIFTS_DETAIL_TEXT_LABEL_GIFT" => "Подарок",
-		"GIFTS_MAIN_PRODUCT_DETAIL_BLOCK_TITLE" => "Выберите один из товаров, чтобы получить подарок",
-		"GIFTS_MAIN_PRODUCT_DETAIL_HIDE_BLOCK_TITLE" => "N",
-		"GIFTS_MAIN_PRODUCT_DETAIL_PAGE_ELEMENT_COUNT" => "4",
-		"GIFTS_MESS_BTN_BUY" => "Выбрать",
-		"GIFTS_SECTION_LIST_BLOCK_TITLE" => "Подарки к товарам этого раздела",
-		"GIFTS_SECTION_LIST_HIDE_BLOCK_TITLE" => "N",
-		"GIFTS_SECTION_LIST_PAGE_ELEMENT_COUNT" => "4",
-		"GIFTS_SECTION_LIST_TEXT_LABEL_GIFT" => "Подарок",
-		"GIFTS_SHOW_DISCOUNT_PERCENT" => "Y",
-		"GIFTS_SHOW_IMAGE" => "Y",
-		"GIFTS_SHOW_NAME" => "Y",
-		"GIFTS_SHOW_OLD_PRICE" => "Y",
-		"HIDE_NOT_AVAILABLE" => "N",
-		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
-		"IBLOCK_ID" => "2",
-		"IBLOCK_TYPE" => "catalog",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"INSTANT_RELOAD" => "Y",
-		"LAZY_LOAD" => "N",
-		"LINE_ELEMENT_COUNT" => "3",
-		"LINK_ELEMENTS_URL" => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",
-		"LINK_IBLOCK_ID" => "",
-		"LINK_IBLOCK_TYPE" => "",
-		"LINK_PROPERTY_SID" => "",
-		"LIST_BROWSER_TITLE" => "-",
-		"LIST_META_DESCRIPTION" => "-",
-		"LIST_META_KEYWORDS" => "-",
-		"LOAD_ON_SCROLL" => "N",
-		"MESSAGE_404" => "",
-		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
-		"MESS_BTN_BUY" => "Купить",
-		"MESS_BTN_COMPARE" => "Сравнение",
-		"MESS_BTN_DETAIL" => "Подробнее",
-		"MESS_BTN_SUBSCRIBE" => "Подписаться",
-		"MESS_COMMENTS_TAB" => "Комментарии",
-		"MESS_DESCRIPTION_TAB" => "Описание",
-		"MESS_NOT_AVAILABLE" => "Нет в наличии",
-		"MESS_PRICE_RANGES_TITLE" => "Цены",
-		"MESS_PROPERTIES_TAB" => "Характеристики",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "30",
-		"PARTIAL_PRODUCT_PROPERTIES" => "N",
-		"PRICE_CODE" => array(
-			0 => "Розничная",
-		),
-		"PRICE_VAT_INCLUDE" => "Y",
-		"PRICE_VAT_SHOW_VALUE" => "N",
-		"PRODUCT_ID_VARIABLE" => "id",
-		"PRODUCT_PROPS_VARIABLE" => "prop",
-		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
-		"PRODUCT_SUBSCRIPTION" => "Y",
-		"SEARCH_CHECK_DATES" => "Y",
-		"SEARCH_NO_WORD_LOGIC" => "Y",
-		"SEARCH_PAGE_RESULT_COUNT" => "50",
-		"SEARCH_RESTART" => "N",
-		"SEARCH_USE_LANGUAGE_GUESS" => "Y",
-		"SECTIONS_SHOW_PARENT_NAME" => "Y",
-		"SECTIONS_VIEW_MODE" => "LIST",
-		"SECTION_ADD_TO_BASKET_ACTION" => "ADD",
-		"SECTION_BACKGROUND_IMAGE" => "-",
-		"SECTION_COUNT_ELEMENTS" => "Y",
-		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"SECTION_TOP_DEPTH" => "2",
-		"SEF_MODE" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"SET_STATUS_404" => "Y",
+		"STATUS_COLOR_S" => "gray",
+		"STATUS_COLOR_T" => "gray",
+		"STATUS_COLOR_C" => "gray",
+		"STATUS_COLOR_P" => "yellow"
+	),
+	$component
+);?>
+ <br>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:sale.personal.order.cancel", 
+	"orderCancel", 
+	array(
+		"PATH_TO_LIST" => "test.php",
+		"PATH_TO_DETAIL" => "order_detail.php?ID=#ID#",
+		"ID" => $ID,
 		"SET_TITLE" => "Y",
-		"SHOW_404" => "Y",
-		"SHOW_DEACTIVATED" => "N",
-		"SHOW_DISCOUNT_PERCENT" => "N",
-		"SHOW_MAX_QUANTITY" => "N",
-		"SHOW_OLD_PRICE" => "N",
-		"SHOW_PRICE_COUNT" => "1",
-		"SHOW_TOP_ELEMENTS" => "N",
-		"SIDEBAR_DETAIL_SHOW" => "N",
-		"SIDEBAR_PATH" => "",
-		"SIDEBAR_SECTION_SHOW" => "Y",
-		"TEMPLATE_THEME" => "blue",
-		"TOP_ADD_TO_BASKET_ACTION" => "ADD",
-		"TOP_ELEMENT_COUNT" => "9",
-		"TOP_ELEMENT_SORT_FIELD" => "sort",
-		"TOP_ELEMENT_SORT_FIELD2" => "id",
-		"TOP_ELEMENT_SORT_ORDER" => "asc",
-		"TOP_ELEMENT_SORT_ORDER2" => "desc",
-		"TOP_LINE_ELEMENT_COUNT" => "3",
-		"USER_CONSENT" => "N",
-		"USER_CONSENT_ID" => "0",
-		"USER_CONSENT_IS_CHECKED" => "Y",
-		"USER_CONSENT_IS_LOADED" => "N",
-		"USE_BIG_DATA" => "N",
-		"USE_COMMON_SETTINGS_BASKET_POPUP" => "N",
-		"USE_COMPARE" => "N",
-		"USE_ELEMENT_COUNTER" => "Y",
-		"USE_ENHANCED_ECOMMERCE" => "N",
-		"USE_FILTER" => "Y",
-		"USE_GIFTS_DETAIL" => "N",
-		"USE_GIFTS_MAIN_PR_SECTION_LIST" => "N",
-		"USE_GIFTS_SECTION" => "N",
-		"USE_MAIN_ELEMENT_SECTION" => "N",
-		"USE_PRICE_COUNT" => "N",
-		"USE_PRODUCT_QUANTITY" => "N",
-		"USE_REVIEW" => "N",
-		"USE_SALE_BESTSELLERS" => "Y",
-		"USE_STORE" => "N",
-		"COMPONENT_TEMPLATE" => ".default",
-		"ADD_PICT_PROP" => "-",
-		"LABEL_PROP" => array(
-		),
-		"PRODUCT_DISPLAY_MODE" => "N",
-		"OFFER_ADD_PICT_PROP" => "-",
-		"FILTER_NAME" => "",
-		"FILTER_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"FILTER_PROPERTY_CODE" => array(
-			0 => "TSVET",
-			1 => "RAZMER",
-			2 => "TIP_TOVARA",
-			3 => "",
-		),
-		"FILTER_PRICE_CODE" => array(
-			0 => "Розничная",
-		),
-		"FILTER_OFFERS_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"FILTER_OFFERS_PROPERTY_CODE" => array(
-			0 => "TSVET",
-			1 => "RAZMER",
-			2 => "TIP_TOVARA",
-			3 => "",
-		),
-		"DETAIL_ADD_TO_BASKET_ACTION_PRIMARY" => array(
-			0 => "BUY",
-		),
-		"LIST_PROPERTY_CODE_MOBILE" => array(
-		),
-		"LIST_OFFERS_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"LIST_OFFERS_LIMIT" => "5",
-		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
-		"LIST_ENLARGE_PRODUCT" => "STRICT",
-		"LIST_SHOW_SLIDER" => "Y",
-		"LIST_SLIDER_INTERVAL" => "3000",
-		"LIST_SLIDER_PROGRESS" => "N",
-		"DETAIL_OFFERS_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
-		),
-		"DETAIL_MAIN_BLOCK_PROPERTY_CODE" => array(
-		),
-		"DETAIL_MAIN_BLOCK_OFFERS_PROPERTY_CODE" => array(
-		),
-		"OFFERS_SORT_FIELD" => "sort",
-		"OFFERS_SORT_ORDER" => "asc",
-		"OFFERS_SORT_FIELD2" => "id",
-		"OFFERS_SORT_ORDER2" => "desc",
-		"FILE_404" => "",
-		"VARIABLE_ALIASES" => array(
-			"ELEMENT_ID" => "ELEMENT_ID",
-			"SECTION_ID" => "SECTION_ID",
-		)
+		"COMPONENT_TEMPLATE" => "orderCancel"
 	),
 	false
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+ <br>
+ <br>
+ <br>
+</div>
+<br>
+
+</div>
+ &nbsp; &nbsp;<?$APPLICATION->IncludeComponent(
+	"reaspekt:reaspekt.geoip",
+	"",
+Array()
+);?><br>
+    */?>
+    <br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<?
+$APPLICATION->IncludeComponent(
+    'bitrix:catalog.product.subscribe',
+    '.default',
+    array(
+        'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
+        'PRODUCT_ID' => $arResult['ID'],
+        'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
+        'BUTTON_CLASS' => 'btn btn-default product-item-detail-buy-button',
+        'DEFAULT_DISPLAY' => !$actualItem['CAN_BUY'],
+        'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
+    ),
+    $component,
+    array('HIDE_ICONS' => 'N')
+);
+?>
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -44,6 +44,9 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 			ctx.BXCallAllowed = false;
 			BX.Sale.OrderAjaxComponent.sendRequest();
 		});
+		IMask(document.querySelector('[name="ORDER_PROP_3"]'), {
+            mask: '+{7} (000) 000-00-00'
+        });
 	},
 
 	cleanUp: function(){

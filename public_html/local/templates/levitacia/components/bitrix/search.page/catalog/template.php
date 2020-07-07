@@ -83,7 +83,7 @@
 		);?>
 	</div>
 <?endif?>
-</form><br />
+</form>
 
 <?if(isset($arResult["REQUEST"]["ORIGINAL_QUERY"])):
 	?>

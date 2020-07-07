@@ -280,7 +280,7 @@ if (empty($arResult['ERROR_MESSAGE']))
                 <div class="basket-content-total" data-entity="basket-total-block"></div>
                 <div class="basket-content-bot">
                     <a class="basket-content-bot__back" href="<?=$arParams['EMPTY_BASKET_HINT_PATH']?>">Продолжить покупки</a>
-                    <a href="<?=$arParams['PATH_TO_ORDER']?>" class="basket-content-bot__checkout" data-entity="basket-checkout-button">
+                    <a href="<?=$arParams['PATH_TO_ORDER']?>" onclick="gaSendOrder(this);" class="basket-content-bot__checkout" data-entity="basket-checkout-button">
                         <?=Loc::getMessage('SBB_ORDER')?>
                     </a>
                 </div>
