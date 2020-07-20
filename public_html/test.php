@@ -4,8 +4,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Title");
 //  global   $USER ;
 // $USER ->Authorize( 93 );
-?>
-<?
+?><?
 
 //send_sms('79992045625',"Привет");
 ?>
@@ -153,26 +152,118 @@ if ($USER->IsAuthorized()){?> <?}?><br>
 	"",
 Array()
 );?><br>
-    */?>
-    <br>
-    <br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-<?
+    */?> <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+	 <?/*
 $APPLICATION->IncludeComponent(
-    'bitrix:catalog.product.subscribe',
-    '.default',
-    array(
-        'CUSTOM_SITE_ID' => isset($arParams['CUSTOM_SITE_ID']) ? $arParams['CUSTOM_SITE_ID'] : null,
-        'PRODUCT_ID' => $arResult['ID'],
-        'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
-        'BUTTON_CLASS' => 'btn btn-default product-item-detail-buy-button',
-        'DEFAULT_DISPLAY' => !$actualItem['CAN_BUY'],
-        'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
-    ),
-    $component,
-    array('HIDE_ICONS' => 'N')
-);
+	"bitrix:catalog.product.subscribe", 
+	"catalog", 
+	array(
+		"CUSTOM_SITE_ID" => isset($arParams["CUSTOM_SITE_ID"])?$arParams["CUSTOM_SITE_ID"]:null,
+		"PRODUCT_ID" => $arResult["ID"],
+		"BUTTON_ID" => $itemIds["SUBSCRIBE_LINK"],
+		"BUTTON_CLASS" => "btn btn-default product-item-detail-buy-button",
+		"DEFAULT_DISPLAY" => !$actualItem["CAN_BUY"],
+		"MESS_BTN_SUBSCRIBE" => $arParams["~MESS_BTN_SUBSCRIBE"],
+		"COMPONENT_TEMPLATE" => "catalog",
+		"CACHE_TYPE" => "N",
+		"CACHE_TIME" => "3600"
+	),
+	$component,
+	array(
+		"HIDE_ICONS" => "N"
+	)
+);*/
 ?>
-
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+</div>
+ &nbsp; &nbsp; &nbsp; &nbsp;<?$APPLICATION->IncludeComponent(
+	"bitrix:sale.order.ajax", 
+	".default", 
+	array(
+		"ACTION_VARIABLE" => "soa-action",
+		"ADDITIONAL_PICT_PROP_2" => "-",
+		"ADDITIONAL_PICT_PROP_3" => "-",
+		"ALLOW_APPEND_ORDER" => "Y",
+		"ALLOW_AUTO_REGISTER" => "Y",
+		"ALLOW_NEW_PROFILE" => "Y",
+		"ALLOW_USER_PROFILES" => "Y",
+		"BASKET_IMAGES_SCALING" => "adaptive",
+		"BASKET_POSITION" => "after",
+		"COMPATIBLE_MODE" => "Y",
+		"DELIVERIES_PER_PAGE" => "9",
+		"DELIVERY_FADE_EXTRA_SERVICES" => "N",
+		"DELIVERY_NO_AJAX" => "Y",
+		"DELIVERY_NO_SESSION" => "Y",
+		"DELIVERY_TO_PAYSYSTEM" => "d2p",
+		"DISABLE_BASKET_REDIRECT" => "N",
+		"EMPTY_BASKET_HINT_PATH" => "/",
+		"HIDE_ORDER_DESCRIPTION" => "N",
+		"ONLY_FULL_PAY_FROM_ACCOUNT" => "N",
+		"PATH_TO_AUTH" => "/auth/",
+		"PATH_TO_BASKET" => "/personal/cart/",
+		"PATH_TO_PAYMENT" => "payment.php",
+		"PATH_TO_PERSONAL" => "index.php",
+		"PAY_FROM_ACCOUNT" => "Y",
+		"PAY_SYSTEMS_PER_PAGE" => "9",
+		"PICKUPS_PER_PAGE" => "5",
+		"PICKUP_MAP_TYPE" => "yandex",
+		"PRODUCT_COLUMNS_HIDDEN" => array(
+		),
+		"PRODUCT_COLUMNS_VISIBLE" => array(
+			0 => "PREVIEW_PICTURE",
+			1 => "PROPS",
+		),
+		"PROPS_FADE_LIST_1" => array(
+		),
+		"SEND_NEW_USER_NOTIFY" => "Y",
+		"SERVICES_IMAGES_SCALING" => "adaptive",
+		"SET_TITLE" => "Y",
+		"SHOW_BASKET_HEADERS" => "N",
+		"SHOW_COUPONS" => "Y",
+		"SHOW_COUPONS_BASKET" => "Y",
+		"SHOW_COUPONS_DELIVERY" => "Y",
+		"SHOW_COUPONS_PAY_SYSTEM" => "Y",
+		"SHOW_DELIVERY_INFO_NAME" => "Y",
+		"SHOW_DELIVERY_LIST_NAMES" => "Y",
+		"SHOW_DELIVERY_PARENT_NAMES" => "Y",
+		"SHOW_MAP_IN_PROPS" => "N",
+		"SHOW_NEAREST_PICKUP" => "Y",
+		"SHOW_NOT_CALCULATED_DELIVERIES" => "L",
+		"SHOW_ORDER_BUTTON" => "final_step",
+		"SHOW_PAY_SYSTEM_INFO_NAME" => "Y",
+		"SHOW_PAY_SYSTEM_LIST_NAMES" => "Y",
+		"SHOW_PICKUP_MAP" => "Y",
+		"SHOW_STORES_IMAGES" => "Y",
+		"SHOW_TOTAL_ORDER_BUTTON" => "Y",
+		"SHOW_VAT_PRICE" => "Y",
+		"SKIP_USELESS_BLOCK" => "Y",
+		"SPOT_LOCATION_BY_GEOIP" => "Y",
+		"TEMPLATE_LOCATION" => "popup",
+		"TEMPLATE_THEME" => "site",
+		"USER_CONSENT" => "N",
+		"USER_CONSENT_ID" => "0",
+		"USER_CONSENT_IS_CHECKED" => "Y",
+		"USER_CONSENT_IS_LOADED" => "N",
+		"USE_CUSTOM_ADDITIONAL_MESSAGES" => "N",
+		"USE_CUSTOM_ERROR_MESSAGES" => "N",
+		"USE_CUSTOM_MAIN_MESSAGES" => "N",
+		"USE_ENHANCED_ECOMMERCE" => "N",
+		"USE_PHONE_NORMALIZATION" => "Y",
+		"USE_PRELOAD" => "Y",
+		"USE_PREPAYMENT" => "N",
+		"USE_YM_GOALS" => "N",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

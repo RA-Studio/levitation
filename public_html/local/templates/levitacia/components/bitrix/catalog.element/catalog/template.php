@@ -1,8 +1,6 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
-use Bitrix\Highloadblock as HL;
-use Bitrix\Main\Entity;
 /**
  * @global CMain $APPLICATION
  * @var array $arParams
@@ -158,15 +156,6 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 	{
 		$labelPositionClass .= isset($positionClassMap[$pos]) ? ' '.$positionClassMap[$pos] : '';
 	}
-}
-function getColor ( $id , $filter = []){
-    if ($id==0) return false;
-    $hlblock = HL\HighloadBlockTable::getById($id)->fetch();
-    $entity = HL\HighloadBlockTable::compileEntity($hlblock);
-    $entityClass = $entity->getDataClass();
-    $res = $entityClass::getList(array('select' => array('*'), 'filter' => $filter));
-    $row = $res->fetch();
-    return $row;
 }
 ?><div id="<?=$itemIds['ID']?>">
 
