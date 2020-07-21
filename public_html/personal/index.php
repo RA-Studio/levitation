@@ -103,5 +103,35 @@ $component
         ?></div>
 	</div>
 </div>
-<br><?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<br>
+<script>
+    IMask(document.querySelector('[name="PERSONAL_PHONE"]'), {
+        mask: [
+          {
+            mask: '+0 (000) 000-00-00',
+            startsWith: '7',
+            maxLength: 11,
+            country: 'Russia'
+          },
+          {
+            mask: '',
+            startsWith: '8',
+            country: 'unknown'
+          },
+          {
+            mask: '00000000000',
+            startsWith: '',
+            country: 'unknown'
+          },
+        ],
+        dispatch: function (appended, dynamicMasked) {
+          var number = (dynamicMasked.value + appended).replace(/\D/g,'');
+    
+          return dynamicMasked.compiledMasks.find(function (m) {
+            return number.indexOf(m.startsWith) === 0;
+          });
+        }
+      }
+    );
+</script>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

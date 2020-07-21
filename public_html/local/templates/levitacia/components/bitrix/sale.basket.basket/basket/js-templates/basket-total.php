@@ -9,20 +9,9 @@ use Bitrix\Main\Localization\Loc;
 <script id="basket-total-template" type="text/html">
         <div class="basket-content-total-row" data-entity="basket-checkout-aligner">
             <?=Loc::getMessage('SBB_TOTAL')?>:
-            {{#DISCOUNT_PRICE_FORMATED}}
-            <div class="basket-coupon-block-total-price-old">
-                {{{PRICE_WITHOUT_DISCOUNT_FORMATED}}}
-            </div>
-            {{/DISCOUNT_PRICE_FORMATED}}
             <div class="basket-content-total-row__price" data-entity="basket-total-price">
                 {{{PRICE_FORMATED}}}
             </div>
-            {{#DISCOUNT_PRICE_FORMATED}}
-            <div class="basket-coupon-block-total-price-difference">
-                <?=Loc::getMessage('SBB_BASKET_ITEM_ECONOMY')?>
-                <span style="white-space: nowrap;">{{{DISCOUNT_PRICE_FORMATED}}}</span>
-            </div>
-            {{/DISCOUNT_PRICE_FORMATED}}
             {{#WEIGHT_FORMATED}}
             <?=Loc::getMessage('SBB_WEIGHT')?>: {{{WEIGHT_FORMATED}}}
             {{#SHOW_VAT}}<br>{{/SHOW_VAT}}

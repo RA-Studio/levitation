@@ -33,9 +33,11 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     $APPLICATION->AddHeadScript("/local/components/slam/easyform/templates/uniform/uniform.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/main.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/ecommerceFunc.js");
-    if(in_array($_SERVER['REMOTE_ADDR'],['185.97.201.199', '83.102.147.81', '78.107.205.212', '5.18.184.71'])){
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/IMask.js");
+    
+    //if(in_array($_SERVER['REMOTE_ADDR'],['185.97.201.199', '83.102.147.81', '78.107.205.212', '5.18.184.71'])){
         $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/assets/scripts/authSms.js");
-    }
+    //}
     ?><!--ICONS-->
     <?
     $APPLICATION->IncludeFile(

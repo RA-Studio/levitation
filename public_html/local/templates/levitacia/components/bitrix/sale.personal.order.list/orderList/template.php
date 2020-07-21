@@ -85,6 +85,7 @@ else {
                                     </div>
                                 </div>
                             <?}?>
+                            <pre style="display: none"><?print_r($order)?></pre>
                             <div class="lk-orderListNew-item-ceil">
                                 <div class="lk-orderListNew-item-info-main__title">
                                     Цена доставки

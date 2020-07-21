@@ -22,15 +22,14 @@ ShowMessage($arParams["~AUTH_RESULT"]);
     <input class="lk-tab__submit" type="submit" name="send_account_info" id="send_forgot" value="<?=GetMessage("AUTH_SEND")?>" />
 </form>
 <script type="text/javascript">
-    <?if(!in_array($_SERVER['REMOTE_ADDR'],['185.97.201.199', '83.102.147.81', '78.107.205.212', '5.18.184.71'])):?>
-        $('#send_forgot').on('click',function (e) {
+
+        /*$('#send_forgot').on('click',function (e) {
             e.preventDefault();
             var _this = $(this);
             $('#success_forgot').fadeIn();
             setTimeout(function () {
                 _this.closest('form').submit();
             }, 2000);
-        });
-    <?endif?>
+        });*/
 document.bform.USER_LOGIN.focus();
 </script>

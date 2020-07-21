@@ -44,7 +44,7 @@ if(isset($_POST['phone']) && $_POST['phone']) {
 
 if (isset($_POST['hash']) && isset($_POST['code'])) {
     if (password_verify($_POST['code'], $_POST['hash'])) {
-        //unset($_SESSION['USER_USER_CHECKWORD']);
+
         $user = new CUser;
         $fields = Array(
             "PASSWORD"          => $_POST['userPassw'],
@@ -54,6 +54,7 @@ if (isset($_POST['hash']) && isset($_POST['code'])) {
         $strError = $user->LAST_ERROR;
 
         if($strError === '') {
+            unset($_SESSION['USER_USER_CHECKWORD']);
             echo json_encode(array(
                 'response' => 'Пароль успешно изменен!',
                 'success' => true,

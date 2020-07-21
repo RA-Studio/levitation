@@ -84,8 +84,8 @@
 
 
 .SUBS-POPUP{
-    width: 300px;
-    height: 240px;
+    width: 305px;
+    height: auto
 }
 .SUBS-POPUP .popup-window-buttons{
     display: flex;
@@ -165,4 +165,41 @@
 }
 .subscribe-btn{
     width: 90%;
+}
+.SUBS-CHECK{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+.SUBS-CHECK span{
+    color: #5a6c77;
+    font-size: 9px;
+}
+.DIV__CHECKBOX{
+    height: 40px;
+    width: 40px;
+    flex-shrink: 0;
+    margin-right: 5px;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.DIV__CHECKBOX:after{
+    width: 20px;
+    content: '';
+    height: 20px;
+    background-color: #000;
+    opacity: .1;
+    transition: .3s;
+}
+.SUBS-CHECK:hover .DIV__CHECKBOX:after{
+    opacity: .5;
+}
+
+.SUBS-CHECK input:checked + .DIV__CHECKBOX:after{
+    opacity: 1;
+}
+.SUBS-CHECK input{
+    display: none;
 }

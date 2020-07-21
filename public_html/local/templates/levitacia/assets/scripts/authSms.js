@@ -14,7 +14,7 @@ $(document).ready(function () {
        let emailValid = email.test(userField);
        let phoneValid = phone.test(userField);
        var passLabel = form.find('[for="password"]');
-console.log(form);
+
        if(!success){
            e.preventDefault();
            if(emailValid) {

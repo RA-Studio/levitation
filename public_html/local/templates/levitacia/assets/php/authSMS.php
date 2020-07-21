@@ -33,13 +33,13 @@ if(isset($_POST['phone'])){
             ));
         } else {
             echo json_encode(array(
-                'response' => 'Не верный номер. Если ошибка не пропадает, свяжитесь с администратором сайта или попробуйте авторизоваться с помощью E-mail.',
+                'response' => 'Не верный номер. Если ошибка не пропадает, свяжитесь с администратором сайта или попробуйте авторизоваться с помощью <a href="/personal/mail-login/">E-mail</a>.',
                 'success' => false,
             ));
         }
     } else {
         echo json_encode(array(
-            'response' => 'Не найдено ни одного пользователя с введенным номером! Попробуйте ввести E-mail.',
+            'response' => 'Не найдено ни одного пользователя с введенным номером! Попробуйте войти по <a href="/personal/mail-login/" style="text-decoration: underline">почте</a> или <a href="/personal/login/#lk-acc2" style="text-decoration: underline">создать аккаунт.</a>',
             'success' => false,
         ));
     }

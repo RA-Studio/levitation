@@ -3,19 +3,17 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="17919c28-2954-4b8b-ab55-5f36d7836762" name="Levitation_Dev" url="http://internxl.beget.tech">
-        <fileTransfer host="internxl.beget.tech" port="22" rootFolder="/home/i/internxl/levitacia.internation.co/public_html" accessType="SFTP">
+        <fileTransfer rootFolder="/home/i/internxl/levitacia.internation.co/public_html" accessType="SFTP" sshConfigId="6814cabe-009d-422c-aa52-905c2e59b95c" sshConfig="Levitation_Dev">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
-          <option name="port" value="22" />
         </fileTransfer>
       </webServer>
       <webServer id="4a3c37f0-cb7d-47ed-9ba4-ce0fe8e3f86d" name="Levitacia_Master" url="http://internxl.beget.tech">
-        <fileTransfer host="internxl.beget.tech" port="21" rootFolder="/levitacia.co/public_html">
+        <fileTransfer rootFolder="/levitacia.co/public_html" host="internxl.beget.tech" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
-          <option name="port" value="21" />
         </fileTransfer>
       </webServer>
     </option>

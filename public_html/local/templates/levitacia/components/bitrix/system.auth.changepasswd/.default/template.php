@@ -22,7 +22,7 @@ ShowMessage($arParams["~AUTH_RESULT"]);
     <label class="lk-tab__label" for="email"><?=GetMessage("AUTH_LOGIN")?> (E-mail)</label>
     <input class="lk-tab__input" type="text" id="email" name="USER_EMAIL" value="<?=$arResult["LAST_LOGIN"]?>" placeholder="<?=GetMessage("AUTH_LOGIN")?>" required="">
     <input class="lk-tab__input" type="text" id="login" name="USER_LOGIN" value="<?=$arResult["LAST_LOGIN"]?>" placeholder="<?=GetMessage("AUTH_LOGIN")?>" required="" hidden="">
-    <label class="lk-tab__label" for="checkword"><?=GetMessage("AUTH_CHECKWORD")?></label>
+    <label class="lk-tab__label" for="checkword"><?=$_SESSION['USER_USER_CHECKWORD']? 'Код:' : GetMessage("AUTH_CHECKWORD")?></label>
     <input class="lk-tab__input" type="pass" id="checkword" name="USER_CHECKWORD" value="<?=$arResult["USER_CHECKWORD"]?>" placeholder="Проверочный код" required="">
     <div class="error" style="color: darkred; display: none;"></div>
     <label class="lk-tab__label" for="password"><?=GetMessage("AUTH_NEW_PASSWORD_REQ")?></label>

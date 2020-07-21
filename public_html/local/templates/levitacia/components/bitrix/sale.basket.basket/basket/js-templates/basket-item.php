@@ -337,7 +337,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
             ?>
             <td class="basket-content-row-col">
                     {{#SHOW_DISCOUNT_PRICE}}
-						<span class="basket-item-price-old-text">
+						<span class="basket-item-price-current-text basket-item-price-old-text">
 							{{{FULL_PRICE_FORMATED}}}
 						</span>
                     {{/SHOW_DISCOUNT_PRICE}}
@@ -368,19 +368,13 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
             ?>
             <td class="basket-content-row-col">
                 {{#SHOW_DISCOUNT_PRICE}}
-					<span class="basket-item-price-old-text" id="basket-item-sum-price-old-{{ID}}">
+					<span class="basket-item-price-current-text basket-item-price-old-text" id="basket-item-sum-price-old-{{ID}}">
 						{{{SUM_FULL_PRICE_FORMATED}}}
 					</span>
                 {{/SHOW_DISCOUNT_PRICE}}
 					<span class="basket-item-price-current-text" id="basket-item-sum-price-{{ID}}">
 						{{{SUM_PRICE_FORMATED}}}
 					</span>
-                {{#SHOW_DISCOUNT_PRICE}}
-                    <?=Loc::getMessage('SBB_BASKET_ITEM_ECONOMY')?>
-                    <span id="basket-item-sum-price-difference-{{ID}}" style="white-space: nowrap;">
-						{{{SUM_DISCOUNT_PRICE_FORMATED}}}
-					</span>
-                {{/SHOW_DISCOUNT_PRICE}}
                 {{#SHOW_LOADING}}
                 <div class="basket-items-list-item-overlay"></div>
                 {{/SHOW_LOADING}}

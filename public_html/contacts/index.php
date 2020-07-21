@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("Контакты");
     <h1 class="title"><?=$APPLICATION->ShowTitle(false)?></h1>
     <div class="contacts">
         <div class="contacts__title">ТЕЛЕФОН</div>
-        <a class="contacts__link" href="tel:88127010520">+7 (812) 701-05-20</a>
+        <a class="contacts__link" href="tel:88127010520">8 (800) 350-20-28</a>
         <div class="contacts__title">E-MAIL</div>
         <a class="contacts__link" href="mailto:info@levitacia.co">info@levitacia.co</a>
         <div class="contacts__title">ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ</div>

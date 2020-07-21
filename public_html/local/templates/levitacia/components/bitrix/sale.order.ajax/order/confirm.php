@@ -14,7 +14,7 @@ if ($arParams["SET_TITLE"] == "Y"){
     <script>
         window.onload = function() {
             ym(54643042, 'reachGoal', 'order_success');
-            fbq('track', 'Purchase', {value: <?=$arOrder['PRICE']?>, currency: <?=$arOrder['CURRENCY']?>});
+            fbq('track', 'Purchase', {value: <?=$arOrder['PRICE']?>, currency: '<?=$arOrder['CURRENCY']?>'});
         }
     </script>
 	<table class="sale_order_full_table">
@@ -95,7 +95,6 @@ if ($arParams["SET_TITLE"] == "Y"){
                                             <br/>
                                                 <?=Loc::getMessage("SOA_PAY_PDF", array("#LINK#" => $arParams["PATH_TO_PAYMENT"]."?ORDER_ID=".$orderAccountNumber."&pdf=1&DOWNLOAD=Y"))?>
                                             <?}?>
-
                                         <?}else{?>
 											<?=$arPaySystem["BUFFERED_OUTPUT"]?>
 										<?}?>

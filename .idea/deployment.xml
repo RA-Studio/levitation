@@ -10,6 +10,14 @@
           <excludedPaths>
             <excludedPath path="/upload" />
             <excludedPath path="/bitrix" />
+            <excludedPath path="/.cache" />
+            <excludedPath path="/sitemap-files.xml" />
+            <excludedPath path="/sitemap-iblock-1.xml" />
+            <excludedPath path="/sitemap-iblock-2.xml" />
+            <excludedPath path="/sitemap-iblock-3.xml" />
+            <excludedPath path="/sitemap-iblock-4.xml" />
+            <excludedPath path="/sitemap.xml" />
+            <excludedPath path="/robots.txt" />
           </excludedPaths>
         </serverdata>
       </paths>
