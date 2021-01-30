@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="17919c28-2954-4b8b-ab55-5f36d7836762" name="Levitation_Dev" url="http://internxl.beget.tech">
-        <fileTransfer rootFolder="/home/i/internxl/levitacia.internation.co/public_html" accessType="SFTP" sshConfigId="6814cabe-009d-422c-aa52-905c2e59b95c" sshConfig="Levitation_Dev">
+        <fileTransfer rootFolder="/home/i/internxl/levitacia.internation.co/public_html" accessType="SFTP" host="internxl.beget.tech" port="22" sshConfigId="217c27fb-cc14-4c5b-9c2d-b75e2ee82976" sshConfig="Levitation_Dev">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
@@ -11,6 +11,20 @@
       </webServer>
       <webServer id="4a3c37f0-cb7d-47ed-9ba4-ce0fe8e3f86d" name="Levitacia_Master" url="http://internxl.beget.tech">
         <fileTransfer rootFolder="/levitacia.co/public_html" host="internxl.beget.tech" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="d610971a-ab4b-4a51-9491-784c9d366d76" name="Levitacia_Server">
+        <fileTransfer accessType="SFTP" host="213.139.209.113" port="22" sshConfigId="c2093aa5-54bb-4407-b57c-da38e5710b80" sshConfig="Levitacia_Server">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="3f83df73-d368-46c4-a198-0817f240718d" name="Levitation_Server">
+        <fileTransfer accessType="SFTP" host="213.139.210.114" port="22" sshConfigId="8be20fd2-6c56-49fa-8dd3-2de309956a65" sshConfig="Levitaion_Server">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

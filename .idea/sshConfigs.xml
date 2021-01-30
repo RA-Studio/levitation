@@ -2,8 +2,18 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="internxl.beget.tech" id="217c27fb-cc14-4c5b-9c2d-b75e2ee82976" port="22" customName="Levitation_Dev" nameFormat="CUSTOM" username="internxl_admin" />
-      <sshConfig authType="PASSWORD" host="internxl.beget.tech" id="afa94f1e-2a36-428e-858b-ce7c8a94a89c" port="22" customName="Levitation_Dev" nameFormat="CUSTOM" username="internxl_admin" />
+      <sshConfig authType="PASSWORD" host="internxl.beget.tech" id="217c27fb-cc14-4c5b-9c2d-b75e2ee82976" port="22" customName="Levitation_Dev" nameFormat="CUSTOM" username="internxl_admin">
+        <option name="customName" value="Levitation_Dev" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="internxl.beget.tech" id="afa94f1e-2a36-428e-858b-ce7c8a94a89c" port="22" customName="Levitation_Dev" nameFormat="CUSTOM" username="internxl_admin">
+        <option name="customName" value="Levitation_Dev" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="213.139.209.113" id="c2093aa5-54bb-4407-b57c-da38e5710b80" port="22" customName="Levitacia_Server" nameFormat="CUSTOM" username="root">
+        <option name="customName" value="Levitacia_Server" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="213.139.210.114" id="8be20fd2-6c56-49fa-8dd3-2de309956a65" port="22" customName="Levitaion_Server" nameFormat="CUSTOM" username="root">
+        <option name="customName" value="Levitaion_Server" />
+      </sshConfig>
     </configs>
   </component>
 </project>

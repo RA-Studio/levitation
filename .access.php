@@ -1,0 +1,9 @@
+<?
+$PERM["video"]["*"]="R";
+$PERM["online"]["*"]="R";
+$PERM["desktop_app"]["*"]="R";
+$PERM["pub"]["8"]="T_8";
+$PERM["upload"]["8"]="T_8";
+$PERM["bitrix"]["5"]="R";
+$PERM["/"]["*"]="R";
+?>
